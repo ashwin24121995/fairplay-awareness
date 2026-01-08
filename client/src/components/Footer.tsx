@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <img src="/logo-new.png" alt="Fairplay Awareness" className="w-12 h-12 rounded-lg" />
+              <img src="/logo-new.webp" alt="Fairplay Awareness" className="w-12 h-12 rounded-lg" />
               <div>
                 <h3 className="text-lg font-bold text-white">Fairplay</h3>
                 <p className="text-xs text-gray-400">Awareness</p>

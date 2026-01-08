@@ -45,22 +45,22 @@ export default function Home() {
 
   const heroSlides = [
     {
-      image: "/hero-new.jpg",
+      image: "/hero-new.webp",
       title: "Sports Fairplay",
       description: "Learn ethical principles in competitive sports, from amateur to professional levels. Discover how fairness drives excellence."
     },
     {
-      image: "/sports-section.jpg",
+      image: "/sports-section.webp",
       title: "Gaming Ethics",
       description: "Master fair play in gaming communities. Understand sportsmanship, respect, and integrity in digital competitions."
     },
     {
-      image: "/learning-section.jpg",
+      image: "/learning-section.webp",
       title: "Business Integrity",
       description: "Build ethical foundations for business success. Learn fairness principles that create lasting value and trust."
     },
     {
-      image: "/community-section.jpg",
+      image: "/community-section.webp",
       title: "Educational Values",
       description: "Develop character through education. Explore how fairness shapes better learning environments and futures."
     }
@@ -152,7 +152,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10 shadow-lg">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src="/logo-new.png" alt="Fairplay Awareness" className="w-16 h-16 drop-shadow-lg" />
+            <img src="/logo-new.webp" alt="Fairplay Awareness" className="w-16 h-16 drop-shadow-lg" />
             <div>
               <h1 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay</h1>
               <p className="text-xs text-purple-200">Awareness</p>
