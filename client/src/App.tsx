@@ -8,12 +8,24 @@ import Quiz from "@/pages/Quiz";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
 
 /**
  * Fairplay Awareness - Main App Router
  * Design: Modern Minimalist with Ethical Geometry
  * Color Scheme: Teal (#0D7377) + Gold (#F4A261)
  */
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+  return null;
+}
 
 function Router() {
   return (
@@ -35,6 +47,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          <ScrollToTop />
           <Router />
         </TooltipProvider>
       </ThemeProvider>
