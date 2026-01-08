@@ -75,7 +75,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10 shadow-lg">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src="/logo-new.png" alt="Fairplay Awareness" className="w-12 h-12 drop-shadow-lg" />
+            <img src="/logo-new.png" alt="Fairplay Awareness" className="w-16 h-16 drop-shadow-lg" />
             <div>
               <h1 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay</h1>
               <p className="text-xs text-purple-200">Awareness</p>
