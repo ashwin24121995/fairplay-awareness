@@ -136,6 +136,67 @@ export default function Home() {
               <p className="text-xs text-purple-200">Awareness</p>
             </div>
           </div>
+
+          {/* Search Bar in Header */}
+          <div className="relative flex-1 max-w-xs mx-8">
+            <div className="relative flex items-center">
+              <Search className="absolute left-3 w-4 h-4 text-purple-400 pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Search topics..."
+                value={searchQuery}
+                onChange={(e) => handleSearch(e.target.value)}
+                className="w-full pl-10 pr-10 py-2 bg-white/10 border border-purple-400/50 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all backdrop-blur"
+              />
+              {searchQuery && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute right-3 text-gray-400 hover:text-white transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Search Results Dropdown in Header */}
+            {showSearchResults && (
+              <div className="absolute top-full left-0 right-0 mt-2 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border border-purple-400/30 rounded-lg backdrop-blur shadow-2xl z-50 overflow-hidden">
+                {searchResults.length > 0 ? (
+                  <div className="max-h-64 overflow-y-auto">
+                    {searchResults.map((result, idx) => {
+                      const getIcon = () => {
+                        if (result.icon === "Trophy") return <Trophy className="w-4 h-4 text-blue-400" />;
+                        if (result.icon === "Gamepad2") return <Gamepad2 className="w-4 h-4 text-purple-400" />;
+                        if (result.icon === "Briefcase") return <Briefcase className="w-4 h-4 text-pink-400" />;
+                        if (result.icon === "BookOpen") return <BookOpen className="w-4 h-4 text-orange-400" />;
+                        if (result.icon === "Globe") return <Globe className="w-4 h-4 text-cyan-400" />;
+                        return null;
+                      };
+                      return (
+                        <Link key={idx} href={`/learn/${result.id}`}>
+                          <a
+                            onClick={() => clearSearch()}
+                            className="flex items-center gap-3 p-3 border-b border-white/10 hover:bg-white/10 transition-colors cursor-pointer group text-sm"
+                          >
+                            <div className="flex-shrink-0">{getIcon()}</div>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-semibold text-white group-hover:text-purple-400 transition-colors">{result.title}</h4>
+                            </div>
+                            <ArrowRight className="w-3 h-3 text-purple-400 flex-shrink-0" />
+                          </a>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="p-3 text-center text-xs text-gray-400">
+                    No topics found
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
           <div className="flex gap-6">
             <a href="#topics" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Topics</a>
             <a href="#features" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Features</a>
@@ -167,72 +228,33 @@ export default function Home() {
                 Master ethical behavior and fairness across Sports, Gaming, Business, Education, and General Life. Join thousands of learners transforming their understanding through interactive content and real-world applications.
               </p>
 
-              {/* Search Bar */}
-              <div className="relative w-full max-w-lg">
-                <div className="relative flex items-center">
-                  <Search className="absolute left-4 w-5 h-5 text-purple-400 pointer-events-none" />
-                  <input
-                    type="text"
-                    placeholder="Search topics... (e.g., Sports, Gaming, Business)"
-                    value={searchQuery}
-                    onChange={(e) => handleSearch(e.target.value)}
-                    className="w-full pl-12 pr-12 py-4 bg-white/10 border border-purple-400/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all backdrop-blur"
-                  />
-                  {searchQuery && (
-                    <button
-                      onClick={clearSearch}
-                      className="absolute right-4 text-gray-400 hover:text-white transition-colors"
-                    >
-                      <X className="w-5 h-5" />
-                    </button>
-                  )}
-                </div>
-
-                {/* Search Results Dropdown */}
-                {showSearchResults && (
-                  <div className="absolute top-full left-0 right-0 mt-3 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border border-purple-400/30 rounded-xl backdrop-blur shadow-2xl z-50 overflow-hidden">
-                    {searchResults.length > 0 ? (
-                      <div className="max-h-96 overflow-y-auto">
-                        {searchResults.map((result, idx) => {
-                          const getIcon = () => {
-                            if (result.icon === "Trophy") return <Trophy className="w-5 h-5 text-blue-400" />;
-                            if (result.icon === "Gamepad2") return <Gamepad2 className="w-5 h-5 text-purple-400" />;
-                            if (result.icon === "Briefcase") return <Briefcase className="w-5 h-5 text-pink-400" />;
-                            if (result.icon === "BookOpen") return <BookOpen className="w-5 h-5 text-orange-400" />;
-                            if (result.icon === "Globe") return <Globe className="w-5 h-5 text-cyan-400" />;
-                            return null;
-                          };
-                          return (
-                            <Link key={idx} href={`/learn/${result.id}`}>
-                              <a
-                                onClick={() => clearSearch()}
-                                className="flex items-center gap-4 p-4 border-b border-white/10 hover:bg-white/10 transition-colors cursor-pointer group"
-                              >
-                                <div className="flex-shrink-0">{getIcon()}</div>
-                                <div className="flex-1 min-w-0">
-                                  <h4 className="font-semibold text-white group-hover:text-purple-400 transition-colors">{result.title}</h4>
-                                  <p className="text-sm text-gray-400 line-clamp-1">{result.description}</p>
-                                </div>
-                                <ArrowRight className="w-4 h-4 text-purple-400 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
-                              </a>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <div className="p-6 text-center">
-                        <p className="text-gray-400">No topics found matching "{searchQuery}"</p>
-                        <p className="text-sm text-gray-500 mt-2">Try searching for: Sports, Gaming, Business, Education, or General Life</p>
-                      </div>
-                    )}
-                  </div>
-                )}
+              {/* Quick Search Topic Buttons */}
+              <div className="flex flex-wrap gap-3 justify-center pt-8">
+                <span className="text-sm text-gray-400 w-full text-center mb-2">Quick Search:</span>
+                {topics.map((topic) => {
+                  const getIcon = () => {
+                    if (topic.icon === "Trophy") return <Trophy className="w-4 h-4" />;
+                    if (topic.icon === "Gamepad2") return <Gamepad2 className="w-4 h-4" />;
+                    if (topic.icon === "Briefcase") return <Briefcase className="w-4 h-4" />;
+                    if (topic.icon === "BookOpen") return <BookOpen className="w-4 h-4" />;
+                    if (topic.icon === "Globe") return <Globe className="w-4 h-4" />;
+                    return null;
+                  };
+                  return (
+                    <Link key={topic.id} href={`/learn/${topic.id}`}>
+                      <a className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/40 hover:to-purple-500/40 border border-purple-400/30 hover:border-purple-400/60 rounded-full text-sm font-medium text-white transition-all duration-300 group">
+                        {getIcon()}
+                        <span className="group-hover:text-purple-300 transition-colors">{topic.shortTitle}</span>
+                      </a>
+                    </Link>
+                  );
+                })}
               </div>
 
-              <div className="flex gap-4 pt-4">
+              <div className="flex gap-4 pt-8">
                 <a href="#topics">
                   <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white gap-2 px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-                    Explore Topics <ArrowRight className="w-5 h-5" />
+                    Explore All Topics <ArrowRight className="w-5 h-5" />
                   </Button>
                 </a>
                 <Button variant="outline" className="border-purple-400 text-purple-300 hover:bg-purple-500/20 px-8 py-6 text-lg font-semibold backdrop-blur">
