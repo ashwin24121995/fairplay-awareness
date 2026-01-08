@@ -230,7 +230,6 @@ export default function Home() {
 
               {/* Quick Search Topic Buttons */}
               <div className="flex flex-wrap gap-3 justify-center pt-8">
-                <span className="text-sm text-gray-400 w-full text-center mb-2">Quick Search:</span>
                 {topics.map((topic) => {
                   const getIcon = () => {
                     if (topic.icon === "Trophy") return <Trophy className="w-4 h-4" />;
