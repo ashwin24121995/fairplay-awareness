@@ -4,10 +4,9 @@ import { Search, X, ArrowRight, Trophy, Gamepad2, Briefcase, BookOpen, Globe, Me
 import { useState } from "react";
 
 /**
- * Modern Navbar Component - Fully Responsive
- * Design: Sleek, minimalist with gradient accents
- * Mobile: Hamburger menu with smooth animations
- * Desktop: Full horizontal navigation with search
+ * Global Navbar Component - Mobile Optimized
+ * Design: Advanced 3D with gradient backgrounds and smooth animations
+ * Features: Hamburger menu for mobile, responsive design, search functionality
  */
 
 export default function Navbar() {
@@ -56,63 +55,37 @@ export default function Navbar() {
     }
   };
 
+  // Hide search on learn and quiz pages
   const hideSearch = location.startsWith("/learn") || location.startsWith("/quiz");
 
   return (
-    <nav className="sticky top-0 z-50 bg-gradient-to-r from-slate-900/80 via-purple-900/80 to-slate-900/80 backdrop-blur-xl border-b border-purple-500/20 shadow-2xl">
-      <div className="container px-3 sm:px-4 md:px-6">
+    <nav className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10 shadow-lg">
+      <div className="container px-3 md:px-0">
         <div className="flex items-center justify-between py-3 md:py-4">
           {/* Logo Section */}
           <Link href="/">
-            <a className="flex items-center gap-2 md:gap-3 hover:opacity-90 transition-opacity flex-shrink-0">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
-                <img src="/logo-new.webp" alt="Fairplay" className="relative w-8 md:w-10 h-8 md:h-10 rounded-lg drop-shadow-lg" />
-              </div>
-              <div className="hidden sm:flex flex-col">
-                <h1 className="font-bold text-sm md:text-base bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+            <a className="flex items-center gap-1.5 md:gap-3 hover:opacity-80 transition-opacity flex-shrink-0">
+              <img src="/logo-new.webp" alt="Fairplay Awareness" className="w-8 h-8 md:w-16 md:h-16 drop-shadow-lg" />
+              <div className="hidden sm:block">
+                <h1 className="font-bold text-xs md:text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 leading-tight">
                   Fairplay
                 </h1>
-                <p className="text-xs text-purple-300">Awareness</p>
+                <p className="text-xs text-purple-200 leading-tight">Awareness</p>
               </div>
             </a>
           </Link>
 
-          {/* Desktop Navigation - Center */}
-          <div className="hidden md:flex items-center gap-8">
-            {location !== "/about" && (
-              <Link href="/about">
-                <a className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
-                  About
-                </a>
-              </Link>
-            )}
-            {location === "/" && (
-              <>
-                <a href="#topics" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
-                  Topics
-                </a>
-                <a href="#features" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
-                  Features
-                </a>
-                <a href="#stats" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">
-                  Impact
-                </a>
-              </>
-            )}
-          </div>
-
-          {/* Desktop Search - Right */}
+          {/* Desktop Search Bar - Hidden on Mobile */}
           {!hideSearch && (
-            <div className="hidden lg:block relative">
+            <div className="hidden lg:block relative flex-1 max-w-xs mx-4">
               <div className="relative flex items-center">
                 <Search className="absolute left-3 w-4 h-4 text-purple-400 pointer-events-none" />
                 <input
                   type="text"
-                  placeholder="Search..."
+                  placeholder="Search topics..."
                   value={searchQuery}
                   onChange={(e) => handleSearch(e.target.value)}
-                  className="pl-10 pr-4 py-2 bg-white/5 border border-purple-400/30 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:border-purple-400 focus:bg-white/10 transition-all backdrop-blur w-48"
+                  className="w-full pl-10 pr-10 py-2 bg-white/10 border border-purple-400/50 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all backdrop-blur"
                 />
                 {searchQuery && (
                   <button
@@ -124,9 +97,9 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Search Results */}
+              {/* Search Results Dropdown */}
               {showSearchResults && (
-                <div className="absolute top-full right-0 mt-2 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border border-purple-400/30 rounded-lg backdrop-blur shadow-2xl z-50 overflow-hidden w-64">
+                <div className="absolute top-full left-0 right-0 mt-2 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border border-purple-400/30 rounded-lg backdrop-blur shadow-2xl z-50 overflow-hidden">
                   {searchResults.length > 0 ? (
                     <div className="max-h-64 overflow-y-auto">
                       {searchResults.map((result, idx) => (
@@ -154,6 +127,30 @@ export default function Navbar() {
             </div>
           )}
 
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex gap-4 lg:gap-6 text-xs lg:text-sm">
+            {location !== "/about" && (
+              <Link href="/about">
+                <a className="font-medium text-white/80 hover:text-white transition-colors">
+                  About
+                </a>
+              </Link>
+            )}
+            {location === "/" && (
+              <>
+                <a href="#topics" className="font-medium text-white/80 hover:text-white transition-colors">
+                  Topics
+                </a>
+                <a href="#features" className="font-medium text-white/80 hover:text-white transition-colors">
+                  Features
+                </a>
+                <a href="#stats" className="font-medium text-white/80 hover:text-white transition-colors">
+                  Impact
+                </a>
+              </>
+            )}
+          </div>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -169,10 +166,10 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-purple-500/20 space-y-3">
+          <div className="md:hidden pb-4 border-t border-white/10">
             {/* Mobile Search */}
             {!hideSearch && (
-              <div className="px-2 pt-3">
+              <div className="mb-4 mt-4 px-2">
                 <div className="relative flex items-center">
                   <Search className="absolute left-3 w-4 h-4 text-purple-400 pointer-events-none" />
                   <input
@@ -180,7 +177,7 @@ export default function Navbar() {
                     placeholder="Search..."
                     value={searchQuery}
                     onChange={(e) => handleSearch(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 bg-white/5 border border-purple-400/30 rounded-lg text-white placeholder-gray-300 text-sm focus:outline-none focus:border-purple-400 focus:bg-white/10 transition-all backdrop-blur"
+                    className="w-full pl-10 pr-10 py-2 bg-white/10 border border-purple-400/50 rounded-lg text-white placeholder-gray-300 text-xs focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all backdrop-blur"
                   />
                   {searchQuery && (
                     <button
@@ -225,12 +222,12 @@ export default function Navbar() {
             )}
 
             {/* Mobile Navigation Links */}
-            <div className="flex flex-col gap-1 px-2">
+            <div className="flex flex-col gap-2 px-2">
               {location !== "/about" && (
                 <Link href="/about">
                   <a
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-medium text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors text-sm"
+                    className="font-medium text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors text-sm"
                   >
                     About
                   </a>
@@ -241,21 +238,21 @@ export default function Navbar() {
                   <a
                     href="#topics"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-medium text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors text-sm"
+                    className="font-medium text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors text-sm"
                   >
                     Topics
                   </a>
                   <a
                     href="#features"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-medium text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors text-sm"
+                    className="font-medium text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors text-sm"
                   >
                     Features
                   </a>
                   <a
                     href="#stats"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-medium text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors text-sm"
+                    className="font-medium text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg transition-colors text-sm"
                   >
                     Impact
                   </a>
