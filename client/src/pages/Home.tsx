@@ -783,59 +783,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section id="contact" className="py-20 relative z-10" data-scroll-animate>
-        <div className="container">
-          <div className={`max-w-2xl mx-auto transition-all duration-1000 ${isVisible('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="text-center mb-12">
-              <h2 className="text-5xl font-black mb-4">
-                <span className="text-gradient">Get in</span> <span className="text-white">Touch</span>
-              </h2>
-              <p className="text-xl text-gray-300">Have questions? We'd love to hear from you.</p>
-            </div>
-
-            <form onSubmit={handleContactSubmit} className="space-y-6 p-8 bg-white/5 border border-white/10 backdrop-blur rounded-2xl">
-              <div>
-                <label className="block text-sm font-semibold text-white mb-2">Name</label>
-                <input
-                  type="text"
-                  value={contactForm.name}
-                  onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none transition-colors"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-white mb-2">Email</label>
-                <input
-                  type="email"
-                  value={contactForm.email}
-                  onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none transition-colors"
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-white mb-2">Message</label>
-                <textarea
-                  value={contactForm.message}
-                  onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-purple-400 focus:outline-none transition-colors resize-none"
-                  placeholder="Your message..."
-                  rows={4}
-                  required
-                />
-              </div>
-              <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 text-lg font-semibold">
-                {contactSubmitted ? "Message Sent! ✓" : "Send Message"}
-              </Button>
-            </form>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="relative py-20 z-10 overflow-hidden" data-scroll-animate id="faq">
         <div className="container">
