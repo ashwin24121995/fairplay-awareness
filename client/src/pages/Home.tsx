@@ -131,110 +131,141 @@ export default function Home() {
       {/* Global Navigation */}
       <Navbar />
 
-      {/* Hero Section - Full Width Modern Design */}
-      <section className="relative w-full overflow-hidden min-h-screen md:min-h-[600px] flex items-center">
-        {/* Background Image Carousel */}
-        <div className="absolute inset-0 z-0">
-          {heroSlides.map((slide, idx) => (
-            <div
-              key={idx}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                idx === currentSlide ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-purple-900/80 to-slate-900/60"></div>
-            </div>
-          ))}
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 container px-3 sm:px-4 md:px-6 py-12 sm:py-16 md:py-24 lg:py-32">
-          <div className="max-w-3xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/20 border border-blue-400/40 rounded-full mb-4 md:mb-6">
-              <Sparkles className="w-4 h-4 text-blue-400" />
-              <span className="text-xs md:text-sm font-semibold text-blue-300">Global Educational Platform</span>
-            </div>
-
-            {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 md:mb-6">
-              <span className="block text-white mb-2">Promote</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay Globally</span>
-            </h1>
-
-            {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 md:mb-8 max-w-2xl leading-relaxed">
-              Master ethical behavior and fairness across Sports, Gaming, Business, Education, and General Life. Join thousands transforming their understanding through interactive content and real-world applications.
-            </p>
-
-            {/* Quick Search Topic Buttons */}
-            <div className="flex flex-wrap gap-1.5 md:gap-3 mb-6 md:mb-8">
-              {topics.map((topic) => {
-                const getIcon = () => {
-                  if (topic.icon === "Trophy") return <Trophy className="w-4 h-4" />;
-                  if (topic.icon === "Gamepad2") return <Gamepad2 className="w-4 h-4" />;
-                  if (topic.icon === "Briefcase") return <Briefcase className="w-4 h-4" />;
-                  if (topic.icon === "BookOpen") return <BookOpen className="w-4 h-4" />;
-                  if (topic.icon === "Globe") return <Globe className="w-4 h-4" />;
-                  return null;
-                };
-                return (
-                  <Link key={topic.id} href={`/learn/${topic.id}`}>
-                    <a className="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/40 hover:to-purple-500/40 border border-purple-400/30 hover:border-purple-400/60 rounded-full text-xs md:text-sm font-medium text-white transition-all duration-300 group">
-                      {getIcon()}
-                      <span className="group-hover:text-purple-300 transition-colors">{topic.shortTitle}</span>
-                    </a>
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12">
-              <a href="#topics" className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105 text-sm md:text-base">
-                Start Learning <ArrowRight className="w-4 h-4" />
-              </a>
-              <button className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 border-2 border-purple-400 text-purple-300 hover:bg-purple-500/20 font-semibold rounded-lg transition-all text-sm md:text-base">
-                Learn More
-              </button>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-2 md:gap-4">
-              <div className="p-2 md:p-4 bg-white/10 backdrop-blur border border-white/20 rounded-lg">
-                <div className="text-lg md:text-2xl font-bold text-blue-400">5</div>
-                <p className="text-xs md:text-sm text-gray-400 mt-1">Topics</p>
+      {/* Hero Section - Modern Split Layout */}
+      <section className="relative pt-8 md:pt-12 pb-12 md:pb-20 overflow-hidden">
+        <div className="container relative z-10 px-3 sm:px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-4 md:space-y-6 order-2 md:order-1">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/20 border border-blue-400/40 rounded-full w-fit">
+                <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-blue-400" />
+                <span className="text-xs md:text-sm font-semibold text-blue-300">Global Educational Platform</span>
               </div>
-              <div className="p-2 md:p-4 bg-white/10 backdrop-blur border border-white/20 rounded-lg">
-                <div className="text-lg md:text-2xl font-bold text-purple-400">50+</div>
-                <p className="text-xs md:text-sm text-gray-400 mt-1">Quizzes</p>
+
+              {/* Main Heading */}
+              <div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-2 md:mb-4">
+                  <span className="block text-white">Promote</span>
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay</span>
+                  <span className="block text-white">Globally</span>
+                </h1>
               </div>
-              <div className="p-2 md:p-4 bg-white/10 backdrop-blur border border-white/20 rounded-lg">
-                <div className="text-lg md:text-2xl font-bold text-pink-400">10K+</div>
-                <p className="text-xs md:text-sm text-gray-400 mt-1">Learners</p>
+
+              {/* Description */}
+              <p className="text-sm md:text-base text-gray-300 leading-relaxed max-w-lg">
+                Master ethical behavior and fairness across Sports, Gaming, Business, Education, and General Life. Join thousands of learners transforming their understanding through interactive content and real-world applications.
+              </p>
+
+              {/* Quick Topic Buttons */}
+              <div className="flex flex-wrap gap-2 md:gap-3 pt-2 md:pt-4">
+                {topics.map((topic) => {
+                  const getIcon = () => {
+                    if (topic.icon === "Trophy") return <Trophy className="w-3 h-3 md:w-4 md:h-4" />;
+                    if (topic.icon === "Gamepad2") return <Gamepad2 className="w-3 h-3 md:w-4 md:h-4" />;
+                    if (topic.icon === "Briefcase") return <Briefcase className="w-3 h-3 md:w-4 md:h-4" />;
+                    if (topic.icon === "BookOpen") return <BookOpen className="w-3 h-3 md:w-4 md:h-4" />;
+                    if (topic.icon === "Globe") return <Globe className="w-3 h-3 md:w-4 md:h-4" />;
+                    return null;
+                  };
+                  return (
+                    <Link key={topic.id} href={`/learn/${topic.id}`}>
+                      <a className="inline-flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/40 hover:to-purple-500/40 border border-purple-400/30 hover:border-purple-400/60 rounded-full text-xs font-medium text-white transition-all duration-300">
+                        {getIcon()}
+                        <span>{topic.shortTitle}</span>
+                      </a>
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 md:pt-6">
+                <a href="#topics" className="inline-flex items-center justify-center gap-2 px-5 md:px-7 py-2.5 md:py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105 text-sm md:text-base">
+                  Start Learning <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                </a>
+                <button className="inline-flex items-center justify-center gap-2 px-5 md:px-7 py-2.5 md:py-3 border-2 border-purple-400 text-purple-300 hover:bg-purple-500/20 font-semibold rounded-lg transition-all text-sm md:text-base">
+                  Learn More
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-2 md:gap-3 pt-4 md:pt-6">
+                <div className="p-2 md:p-3 bg-white/5 border border-white/10 rounded-lg text-center">
+                  <div className="text-base md:text-xl font-bold text-blue-400">5</div>
+                  <p className="text-xs text-gray-400 mt-0.5">Topics</p>
+                </div>
+                <div className="p-2 md:p-3 bg-white/5 border border-white/10 rounded-lg text-center">
+                  <div className="text-base md:text-xl font-bold text-purple-400">50+</div>
+                  <p className="text-xs text-gray-400 mt-0.5">Quizzes</p>
+                </div>
+                <div className="p-2 md:p-3 bg-white/5 border border-white/10 rounded-lg text-center">
+                  <div className="text-base md:text-xl font-bold text-pink-400">10K+</div>
+                  <p className="text-xs text-gray-400 mt-0.5">Learners</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Visual - Carousel */}
+            <div className="relative w-full h-56 sm:h-64 md:h-80 lg:h-96 order-1 md:order-2">
+              {/* Carousel Container */}
+              <div className="relative w-full h-full overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl">
+                {/* Slides */}
+                {heroSlides.map((slide, idx) => (
+                  <div
+                    key={idx}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${
+                      idx === currentSlide ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    {/* Slide Info */}
+                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-6 text-white">
+                      <h3 className="text-base md:text-xl font-bold mb-1">{slide.title}</h3>
+                      <p className="text-xs md:text-sm text-gray-200">{slide.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Controls */}
+              <div className="absolute -bottom-12 md:-bottom-14 left-0 right-0 flex items-center justify-between px-0 md:px-2">
+                <button
+                  onClick={() => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+                  className="p-1.5 md:p-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full text-white transition-all transform hover:scale-110"
+                >
+                  <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
+                </button>
+
+                <div className="flex gap-1 md:gap-2">
+                  {heroSlides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`h-1.5 md:h-2 rounded-full transition-all ${
+                        index === currentSlide
+                          ? "bg-gradient-to-r from-blue-400 to-purple-400 w-6 md:w-8"
+                          : "bg-white/30 w-1.5 md:w-2 hover:bg-white/50"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
+                  className="p-1.5 md:p-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full text-white transition-all transform hover:scale-110"
+                >
+                  <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+                </button>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
-          {heroSlides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-2 rounded-full transition-all ${
-                idx === currentSlide
-                  ? "bg-white w-8"
-                  : "bg-white/40 w-2 hover:bg-white/60"
-              }`}
-            />
-          ))}
         </div>
       </section>
 
