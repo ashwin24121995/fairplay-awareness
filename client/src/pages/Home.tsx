@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getAllTopics } from "@/lib/fairplayData";
-import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award } from "lucide-react";
+import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 
 /**
- * Advanced 3D Home Page - Fairplay Awareness
- * Design: Modern 3D with vibrant gradients and smooth animations
- * Features: Parallax scrolling, floating elements, neon effects
+ * Enhanced 3D Home Page - Fairplay Awareness
+ * Design: Advanced 3D with vibrant gradients, scroll animations, and multiple engaging sections
  */
 
 export default function Home() {
@@ -15,11 +14,28 @@ export default function Home() {
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setVisibleSections((prev) => new Set(Array.from(prev).concat(entry.target.id)));
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("[data-scroll-animate]").forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const handleContactSubmit = (e: React.FormEvent) => {
@@ -38,6 +54,14 @@ export default function Home() {
     { icon: Star, label: "Satisfaction Rate", value: "98%", color: "from-green-500 to-emerald-500" },
   ];
 
+  const features = [
+    { icon: Sparkles, title: "Deep Learning", description: "5,000-7,000 words of comprehensive content per topic", gradient: "from-blue-500 to-cyan-500" },
+    { icon: Target, title: "Interactive Quizzes", description: "10-15 question quizzes with immediate feedback", gradient: "from-purple-500 to-pink-500" },
+    { icon: Globe, title: "Global Reach", description: "Learn fairplay principles applicable across all areas", gradient: "from-orange-500 to-red-500" },
+  ];
+
+  const isVisible = (id: string) => Array.from(visibleSections).includes(id);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
       {/* Animated Background Blobs */}
@@ -51,7 +75,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10 shadow-lg">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Fairplay Awareness" className="w-12 h-12 drop-shadow-lg" />
+            <img src="/logo-new.png" alt="Fairplay Awareness" className="w-12 h-12 drop-shadow-lg" />
             <div>
               <h1 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay</h1>
               <p className="text-xs text-purple-200">Awareness</p>
@@ -59,6 +83,7 @@ export default function Home() {
           </div>
           <div className="flex gap-6">
             <a href="#topics" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Topics</a>
+            <a href="#features" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Features</a>
             <a href="#stats" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Impact</a>
             <a href="#contact" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Contact</a>
           </div>
@@ -120,7 +145,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
               <div className="relative float-animation">
                 <img 
-                  src="/images/hero-main.jpg" 
+                  src="/hero-new.jpg" 
                   alt="Fairplay Awareness Hero" 
                   className="rounded-3xl shadow-2xl w-full h-auto object-cover border-2 border-purple-400/30"
                   style={{transform: `translateY(${scrollY * 0.1}px)`}}
@@ -133,9 +158,9 @@ export default function Home() {
       </section>
 
       {/* Features Section with 3D Cards */}
-      <section className="py-20 relative z-10">
+      <section id="features" className="py-20 relative z-10" data-scroll-animate>
         <div className="container">
-          <div className="text-center mb-16 slide-in-up">
+          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible('features') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl font-black mb-4">
               <span className="text-gradient">Why Choose</span> <span className="text-white">Fairplay?</span>
             </h2>
@@ -145,29 +170,10 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Zap,
-                title: "Deep Learning",
-                description: "5,000-7,000 words of comprehensive content per topic with real-world examples",
-                gradient: "from-blue-500 to-cyan-500"
-              },
-              {
-                icon: Target,
-                title: "Interactive Quizzes",
-                description: "10-15 question quizzes with immediate feedback and detailed explanations",
-                gradient: "from-purple-500 to-pink-500"
-              },
-              {
-                icon: Star,
-                title: "Global Reach",
-                description: "Learn fairplay principles applicable across all areas of life and work",
-                gradient: "from-orange-500 to-red-500"
-              }
-            ].map((feature, idx) => {
+            {features.map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div key={idx} className="group card-3d p-8 bg-white/5 border border-white/10 backdrop-blur hover:bg-white/10">
+                <div key={idx} className={`group card-3d p-8 bg-white/5 border border-white/10 backdrop-blur hover:bg-white/10 transition-all duration-700 ${isVisible('features') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: `${idx * 100}ms`}}>
                   <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.gradient} p-3 mb-6 group-hover:scale-110 transition-transform`}>
                     <Icon className="w-full h-full text-white" />
                   </div>
@@ -180,10 +186,107 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section id="stats" className="py-20 relative z-10">
+      {/* Sports Fairplay Section */}
+      <section className="py-20 relative z-10" data-scroll-animate>
         <div className="container">
-          <div className="text-center mb-16">
+          <div className={`transition-all duration-1000 ${isVisible('sports-section') ? 'opacity-100' : 'opacity-0'}`} id="sports-section">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-5xl font-black">
+                  <span className="text-gradient">Sports</span> <span className="text-white">Fairplay</span>
+                </h2>
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  Learn the principles of fair competition, respect, and integrity in sports. Understand how fairplay creates better athletes and stronger communities.
+                </p>
+                <Link href="/learn/sports">
+                  <a>
+                    <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white gap-2 px-8 py-6 text-lg font-semibold">
+                      Explore Sports Fairplay <ArrowRight className="w-5 h-5" />
+                    </Button>
+                  </a>
+                </Link>
+              </div>
+              <div className="relative h-80">
+                <img 
+                  src="/sports-section.jpg" 
+                  alt="Sports Fairplay" 
+                  className="rounded-3xl shadow-2xl w-full h-full object-cover border-2 border-purple-400/30"
+                />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-purple-900/40 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Learning & Growth Section */}
+      <section className="py-20 relative z-10" data-scroll-animate>
+        <div className="container">
+          <div className={`transition-all duration-1000 ${isVisible('learning-section') ? 'opacity-100' : 'opacity-0'}`} id="learning-section">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative h-80 order-2 md:order-1">
+                <img 
+                  src="/learning-section.jpg" 
+                  alt="Learning & Growth" 
+                  className="rounded-3xl shadow-2xl w-full h-full object-cover border-2 border-purple-400/30"
+                />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-purple-900/40 to-transparent"></div>
+              </div>
+              <div className="space-y-6 order-1 md:order-2">
+                <h2 className="text-5xl font-black">
+                  <span className="text-white">Learning</span> <span className="text-gradient">&amp; Growth</span>
+                </h2>
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  Develop your understanding through interactive quizzes and comprehensive content. Track your progress and grow your knowledge with our structured learning paths.
+                </p>
+                <Link href="/learn/education">
+                  <a>
+                    <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white gap-2 px-8 py-6 text-lg font-semibold">
+                      Start Learning <ArrowRight className="w-5 h-5" />
+                    </Button>
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section */}
+      <section className="py-20 relative z-10" data-scroll-animate>
+        <div className="container">
+          <div className={`transition-all duration-1000 ${isVisible('community-section') ? 'opacity-100' : 'opacity-0'}`} id="community-section">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <h2 className="text-5xl font-black">
+                  <span className="text-gradient">Community</span> <span className="text-white">&amp; Connection</span>
+                </h2>
+                <p className="text-xl text-gray-300 leading-relaxed">
+                  Join a global community of learners committed to fairplay. Connect with others, share experiences, and build a network of ethical practitioners worldwide.
+                </p>
+                <div className="flex gap-4">
+                  <Button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white gap-2 px-8 py-6 text-lg font-semibold">
+                    Join Community <Users className="w-5 h-5" />
+                  </Button>
+                </div>
+              </div>
+              <div className="relative h-80">
+                <img 
+                  src="/community-section.jpg" 
+                  alt="Community" 
+                  className="rounded-3xl shadow-2xl w-full h-full object-cover border-2 border-purple-400/30"
+                />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-purple-900/40 to-transparent"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section id="stats" className="py-20 relative z-10" data-scroll-animate>
+        <div className="container">
+          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible('stats') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl font-black mb-4">
               <span className="text-white">Our</span> <span className="text-gradient">Impact</span>
             </h2>
@@ -193,7 +296,7 @@ export default function Home() {
             {stats.map((stat, idx) => {
               const Icon = stat.icon;
               return (
-                <div key={idx} className="card-3d p-8 bg-gradient-to-br ${stat.color} opacity-10 hover:opacity-20 border border-white/10 backdrop-blur text-center group">
+                <div key={idx} className={`card-3d p-8 bg-gradient-to-br ${stat.color} opacity-10 hover:opacity-20 border border-white/10 backdrop-blur text-center group transition-all duration-700 ${isVisible('stats') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: `${idx * 100}ms`}}>
                   <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${stat.color} p-3 group-hover:scale-110 transition-transform`}>
                     <Icon className="w-full h-full text-white" />
                   </div>
@@ -207,9 +310,9 @@ export default function Home() {
       </section>
 
       {/* Topics Grid */}
-      <section id="topics" className="py-20 relative z-10">
+      <section id="topics" className="py-20 relative z-10" data-scroll-animate>
         <div className="container">
-          <div className="text-center mb-16 slide-in-up">
+          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible('topics') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl font-black mb-4">
               <span className="text-white">Explore</span> <span className="text-gradient">Topics</span>
             </h2>
@@ -221,7 +324,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {topics.map((topic, idx) => (
               <Link key={topic.id} href={`/learn/${topic.id}`}>
-                <a className="group cursor-pointer h-full">
+                <a className={`group cursor-pointer h-full transition-all duration-700 ${isVisible('topics') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: `${idx * 100}ms`}}>
                   <div className="card-3d overflow-hidden h-full flex flex-col bg-white/5 border border-white/10 hover:border-purple-400/50">
                     <div className="relative h-40 overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20">
                       <img 
@@ -250,52 +353,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20 relative z-10">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 slide-in-up">
-              <h2 className="text-5xl font-black">
-                <span className="text-white">Our</span> <span className="text-gradient">Mission</span>
-              </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                Fairplay Awareness is dedicated to promoting ethical behavior and fairness globally. We believe that fairplay principles are fundamental to building trustworthy communities, sustainable organizations, and a just society.
-              </p>
-              <p className="text-lg text-gray-400 leading-relaxed">
-                Through comprehensive education and interactive learning, we empower individuals to understand, value, and practice fairplay across all aspects of their lives.
-              </p>
-              <div className="pt-4 space-y-3">
-                {["Integrity in all endeavors", "Respect for all individuals", "Transparent communication", "Commitment to education"].map((value, idx) => (
-                  <div key={idx} className="flex gap-3 items-center">
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400"></div>
-                    <span className="text-gray-300">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
-              <div className="relative bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8 space-y-6 float-animation">
-                {[
-                  { number: "5", label: "Fairplay Domains", gradient: "from-blue-400 to-cyan-400" },
-                  { number: "50+", label: "Interactive Quizzes", gradient: "from-purple-400 to-pink-400" },
-                  { number: "Global", label: "Audience Reach", gradient: "from-orange-400 to-red-400" }
-                ].map((stat, idx) => (
-                  <div key={idx} className="p-6 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 text-center hover:border-purple-400/50 transition-colors">
-                    <div className={`text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r ${stat.gradient} mb-2`}>{stat.number}</div>
-                    <p className="text-gray-300">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-20 relative z-10">
+      <section id="contact" className="py-20 relative z-10" data-scroll-animate>
         <div className="container max-w-2xl">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 transition-all duration-1000 ${isVisible('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-5xl font-black mb-4">
               <span className="text-white">Get In</span> <span className="text-gradient">Touch</span>
             </h2>
