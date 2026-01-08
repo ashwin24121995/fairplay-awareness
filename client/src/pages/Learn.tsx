@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link, useParams, useLocation } from "wouter";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 /**
  * Learning Page - Advanced 3D Design
@@ -157,19 +158,7 @@ export default function Learn() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 bg-black/50 backdrop-blur border-t border-white/10 py-12 mt-16">
-        <div className="container">
-          <div className="text-center">
-            <Link href="/">
-              <a className="text-white hover:text-purple-400 transition-colors font-semibold mb-4 inline-block">
-                ← Back to Home
-              </a>
-            </Link>
-            <p className="text-gray-400">&copy; 2026 Fairplay Awareness. Promoting ethical behavior globally.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

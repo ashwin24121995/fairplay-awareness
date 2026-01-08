@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
 import { Link, useParams, useLocation } from "wouter";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 /**
  * Quiz Page - Advanced 3D Design
@@ -171,12 +172,7 @@ export default function Quiz() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="relative z-10 bg-black/50 backdrop-blur border-t border-white/10 py-12 mt-16">
-          <div className="container text-center text-gray-400">
-            <p>&copy; 2026 Fairplay Awareness. Promoting ethical behavior globally.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     );
   }
@@ -304,12 +300,7 @@ export default function Quiz() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 bg-black/50 backdrop-blur border-t border-white/10 py-12 mt-16">
-        <div className="container text-center text-gray-400">
-          <p>&copy; 2026 Fairplay Awareness. Promoting ethical behavior globally.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
