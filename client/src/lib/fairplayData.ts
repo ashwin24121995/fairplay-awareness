@@ -31,7 +31,7 @@ export const topics: Topic[] = [
     title: "Sports Fairplay",
     shortTitle: "Sports",
     description: "Learn about fairplay principles in sports, including anti-cheating, doping prevention, and sportsmanship.",
-    image: "/images/sports-fairplay.jpg",
+    image: "/images/sports-fairplay.webp",
     icon: "Trophy",
     color: "#0D7377",
     sections: {
@@ -145,7 +145,7 @@ Without fairplay, sports becomes a hollow spectacle where records mean nothing, 
     title: "Gaming & Esports Fairplay",
     shortTitle: "Gaming",
     description: "Explore fairplay in gaming and esports, including anti-cheat systems, competitive integrity, and community standards.",
-    image: "/images/gaming-fairplay.jpg",
+    image: "/images/gaming-fairplay.webp",
     icon: "Gamepad2",
     color: "#0D7377",
     sections: {
@@ -257,7 +257,7 @@ Without fairplay, gaming becomes a wasteland where cheaters dominate, honest pla
     title: "Business Ethics & Fairplay",
     shortTitle: "Business",
     description: "Understand fairplay in business, including honest practices, transparency, and ethical decision-making.",
-    image: "/images/business-fairplay.jpg",
+    image: "/images/business-fairplay.webp",
     icon: "Briefcase",
     color: "#0D7377",
     sections: {
@@ -371,7 +371,7 @@ Without fairplay, business becomes a race to the bottom where the most dishonest
     title: "Academic Integrity & Fairplay",
     shortTitle: "Education",
     description: "Learn about fairplay in education, including academic honesty, plagiarism prevention, and ethical learning.",
-    image: "/images/education-fairplay.jpg",
+    image: "/images/education-fairplay.webp",
     icon: "BookMarked",
     color: "#0D7377",
     sections: {
@@ -485,7 +485,7 @@ Without academic integrity, degrees become meaningless, institutions lose credib
     title: "Fairplay in Daily Life",
     shortTitle: "General Life",
     description: "Discover how fairplay principles apply to everyday relationships, work, and personal interactions.",
-    image: "/images/general-fairplay.jpg",
+    image: "/images/general-fairplay.webp",
     icon: "Heart",
     color: "#0D7377",
     sections: {
