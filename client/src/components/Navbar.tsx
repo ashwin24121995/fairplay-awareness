@@ -59,13 +59,13 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10 shadow-lg">
-      <div className="container flex items-center justify-between py-4">
+      <div className="container flex items-center justify-between py-3 md:py-4 px-4 md:px-0">
         {/* Logo Section */}
         <Link href="/">
-          <a className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src="/logo-new.webp" alt="Fairplay Awareness" className="w-16 h-16 drop-shadow-lg" />
-            <div>
-              <h1 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+          <a className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity flex-shrink-0">
+            <img src="/logo-new.webp" alt="Fairplay Awareness" className="w-10 h-10 md:w-16 md:h-16 drop-shadow-lg" />
+            <div className="hidden sm:block">
+              <h1 className="font-bold text-base md:text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
                 Fairplay
               </h1>
               <p className="text-xs text-purple-200">Awareness</p>
@@ -73,9 +73,9 @@ export default function Navbar() {
           </a>
         </Link>
 
-        {/* Search Bar in Header */}
+        {/* Search Bar in Header - Hidden on Mobile */}
         {!hideSearch && (
-          <div className="relative flex-1 max-w-xs mx-8">
+          <div className="hidden md:block relative flex-1 max-w-xs mx-8">
             <div className="relative flex items-center">
               <Search className="absolute left-3 w-4 h-4 text-purple-400 pointer-events-none" />
               <input
@@ -125,24 +125,24 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* Navigation Links */}
-        <div className="flex gap-6">
+        {/* Navigation Links - Responsive */}
+        <div className="flex gap-3 md:gap-6 text-xs md:text-sm">
           {location !== "/about" && (
             <Link href="/about">
-              <a className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+              <a className="font-medium text-white/80 hover:text-white transition-colors">
                 About
               </a>
             </Link>
           )}
           {location === "/" && (
             <>
-              <a href="#topics" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+              <a href="#topics" className="font-medium text-white/80 hover:text-white transition-colors hidden sm:inline">
                 Topics
               </a>
-              <a href="#features" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+              <a href="#features" className="font-medium text-white/80 hover:text-white transition-colors hidden sm:inline">
                 Features
               </a>
-              <a href="#stats" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+              <a href="#stats" className="font-medium text-white/80 hover:text-white transition-colors hidden sm:inline">
                 Impact
               </a>
             </>
