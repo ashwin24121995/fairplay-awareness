@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getAllTopics } from "@/lib/fairplayData";
-import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Trophy, Gamepad2, Briefcase, BookOpen, Search, X, Lightbulb } from "lucide-react";
+import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Trophy, Gamepad2, Briefcase, BookOpen, Search, X, Lightbulb, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
 /**
@@ -19,6 +19,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<typeof topics>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
+  const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -116,6 +117,26 @@ export default function Home() {
   ];
 
   const isVisible = (id: string) => Array.from(visibleSections).includes(id);
+
+  const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+    const isExpanded = expandedFAQ === question;
+    return (
+      <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-purple-400/30 transition-all">
+        <button
+          onClick={() => setExpandedFAQ(isExpanded ? null : question)}
+          className="w-full px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors"
+        >
+          <span className="text-left font-semibold text-white">{question}</span>
+          <ChevronDown className={`w-5 h-5 text-purple-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+        </button>
+        {isExpanded && (
+          <div className="px-6 py-4 border-t border-white/10 bg-white/5 text-gray-300">
+            {answer}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
@@ -802,6 +823,67 @@ export default function Home() {
                 {contactSubmitted ? "Message Sent! ✓" : "Send Message"}
               </Button>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative py-20 z-10 overflow-hidden" data-scroll-animate id="faq">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-black mb-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Frequently Asked Questions</span>
+              </h2>
+              <p className="text-gray-300 text-lg">Find answers to common questions about Fairplay Awareness</p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  question: "What is Fairplay Awareness?",
+                  answer: "Fairplay Awareness is a comprehensive global educational platform dedicated to promoting ethical behavior, fairness, and integrity across all domains of life including sports, gaming, business, education, and general life interactions.",
+                  icon: "🎯"
+                },
+                {
+                  question: "Who can use this platform?",
+                  answer: "Our platform is designed for anyone interested in learning about fairplay principles - students, professionals, athletes, gamers, business leaders, educators, and anyone committed to promoting ethical behavior in their communities.",
+                  icon: "👥"
+                },
+                {
+                  question: "Is the platform completely free?",
+                  answer: "Yes! All content, learning modules, and interactive quizzes are completely free and accessible to everyone worldwide. We believe ethical education should be universally available.",
+                  icon: "💰"
+                },
+                {
+                  question: "How long does each topic take to complete?",
+                  answer: "Each topic contains 5,000-7,000 words of deep detailed content and typically takes 20-30 minutes to read thoroughly. Interactive quizzes add another 10-15 minutes. You can learn at your own pace.",
+                  icon: "⏱️"
+                },
+                {
+                  question: "Can I download certificates after completing quizzes?",
+                  answer: "Currently, you receive instant feedback and scores on quizzes. We're working on adding downloadable certificates for quiz completion to help you showcase your achievements.",
+                  icon: "📜"
+                },
+                {
+                  question: "How many topics are available?",
+                  answer: "We currently offer 5 comprehensive topics: Sports Fairplay, Gaming Ethics, Business Integrity, Educational Values, and General Life Fairplay. We're continuously adding new content.",
+                  icon: "📚"
+                },
+                {
+                  question: "Do I need to create an account?",
+                  answer: "No account is required! You can access all content immediately. However, we're developing optional accounts to track your progress and save your quiz scores.",
+                  icon: "🔐"
+                },
+                {
+                  question: "How can I contact you for feedback or suggestions?",
+                  answer: "You can use our Contact form on this page to send us messages, feedback, or suggestions. We value your input and use it to continuously improve our platform.",
+                  icon: "📧"
+                }
+              ].map((faq, index) => (
+                <FAQItem key={index} question={faq.question} answer={faq.answer} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
