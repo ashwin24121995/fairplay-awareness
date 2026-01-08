@@ -43,74 +43,85 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
+  /* Fairplay Awareness Color Scheme */
+  /* Primary: Deep Teal - Trust, integrity, stability */
+  --primary: #0D7377;
+  --primary-foreground: #F8F9FA;
+  
+  /* Secondary: Warm Gold - Achievement, growth, warmth */
+  --secondary: #F4A261;
+  --secondary-foreground: #1A1A1A;
+  
+  /* Accent: Coral Red - Alert, passion, action */
+  --accent: #E76F51;
+  --accent-foreground: #F8F9FA;
+  
+  /* Sidebar colors */
+  --sidebar-primary: #0D7377;
+  --sidebar-primary-foreground: #F8F9FA;
+  
+  /* Chart colors */
+  --chart-1: #0D7377;
+  --chart-2: #F4A261;
+  --chart-3: #E76F51;
+  --chart-4: #2A9D8F;
+  --chart-5: #E9C46A;
+  
   --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --background: #F8F9FA;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --muted: #E8EAED;
+  --muted-foreground: #5F6368;
+  --destructive: #E76F51;
+  --destructive-foreground: #F8F9FA;
+  --border: #E8EAED;
+  --input: #E8EAED;
+  --ring: #0D7377;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-accent: #F4A261;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #E8EAED;
+  --sidebar-ring: #0D7377;
 }
 
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --primary: #0D7377;
+  --primary-foreground: #F8F9FA;
+  --sidebar-primary: #0D7377;
+  --sidebar-primary-foreground: #F8F9FA;
+  --background: #0F1419;
+  --foreground: #F8F9FA;
+  --card: #1A2332;
+  --card-foreground: #F8F9FA;
+  --popover: #1A2332;
+  --popover-foreground: #F8F9FA;
+  --secondary: #F4A261;
+  --secondary-foreground: #1A1A1A;
+  --muted: #2A3F5F;
+  --muted-foreground: #B0B8C1;
+  --accent: #E76F51;
+  --accent-foreground: #F8F9FA;
+  --destructive: #E76F51;
+  --destructive-foreground: #F8F9FA;
+  --border: #2A3F5F;
+  --input: #2A3F5F;
+  --ring: #F4A261;
+  --chart-1: #0D7377;
+  --chart-2: #F4A261;
+  --chart-3: #E76F51;
+  --chart-4: #2A9D8F;
+  --chart-5: #E9C46A;
+  --sidebar: #1A2332;
+  --sidebar-foreground: #F8F9FA;
+  --sidebar-accent: #F4A261;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #2A3F5F;
+  --sidebar-ring: #F4A261;
 }
 
 @layer base {
@@ -119,6 +130,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -136,22 +152,12 @@
 @layer components {
   /**
    * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
    */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -160,18 +166,51 @@
     min-width: 0;
   }
 
+  /* Geometric divider with teal and gold */
+  .divider-geometric {
+    position: relative;
+    height: 120px;
+    background: linear-gradient(135deg, #0D7377 0%, #F4A261 100%);
+    clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0 85%);
+    margin: 2rem 0;
+  }
+
+  /* Fairplay card with shadow and hover effect */
+  .fairplay-card {
+    @apply bg-card text-card-foreground rounded-lg border border-border shadow-md transition-all duration-300;
+  }
+
+  .fairplay-card:hover {
+    @apply shadow-lg -translate-y-1;
+  }
+
+  /* Teal accent text */
+  .text-teal {
+    @apply text-[#0D7377];
+  }
+
+  /* Gold accent text */
+  .text-gold {
+    @apply text-[#F4A261];
+  }
+
+  /* Progress indicator */
+  .progress-ring {
+    @apply rounded-full bg-gradient-to-r from-[#0D7377] to-[#F4A261];
+  }
+
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
   }
 }
