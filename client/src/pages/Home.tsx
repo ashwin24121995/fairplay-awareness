@@ -339,6 +339,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Who We Are Section */}
+      <section className="relative py-20 z-10 overflow-hidden" data-scroll-animate id="about">
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left - Visual Element */}
+            <div className={`relative transition-all duration-1000 ${isVisible('about') ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+              <div className="relative h-96 rounded-2xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 backdrop-blur-xl"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center space-y-4">
+                    <div className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay</div>
+                    <div className="text-2xl text-white font-bold">Global Awareness Initiative</div>
+                    <div className="text-gray-300 text-sm">Promoting Ethical Behavior Worldwide</div>
+                  </div>
+                </div>
+                <div className="absolute inset-0 border border-white/20 rounded-2xl group-hover:border-purple-400/50 transition-all"></div>
+              </div>
+            </div>
+
+            {/* Right - Content */}
+            <div className={`space-y-8 transition-all duration-1000 ${isVisible('about') ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              <div>
+                <h2 className="text-5xl font-black mb-6">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Who We Are</span>
+                </h2>
+                <p className="text-xl text-gray-300 leading-relaxed mb-6">
+                  Fairplay Awareness is a global educational initiative dedicated to promoting ethical behavior and fairness across all aspects of life. We believe that integrity, honesty, and respect form the foundation of a thriving society.
+                </p>
+              </div>
+
+              {/* Mission Statement */}
+              <div className="bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl p-8 border border-white/10 backdrop-blur">
+                <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                  <Target className="w-6 h-6 text-blue-400" />
+                  Our Mission
+                </h3>
+                <p className="text-gray-200 leading-relaxed">
+                  To empower individuals and organizations worldwide with the knowledge, skills, and values needed to practice fairplay in every aspect of their lives—from sports and gaming to business, education, and everyday interactions.
+                </p>
+              </div>
+
+              {/* Core Values */}
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+                  <Heart className="w-6 h-6 text-pink-400" />
+                  Our Core Values
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all">
+                    <div className="text-blue-400 font-bold mb-2">Integrity</div>
+                    <p className="text-sm text-gray-300">Unwavering commitment to honesty and ethical conduct</p>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all">
+                    <div className="text-purple-400 font-bold mb-2">Respect</div>
+                    <p className="text-sm text-gray-300">Valuing others' rights and treating everyone fairly</p>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all">
+                    <div className="text-pink-400 font-bold mb-2">Excellence</div>
+                    <p className="text-sm text-gray-300">Striving for the highest standards in everything</p>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all">
+                    <div className="text-orange-400 font-bold mb-2">Impact</div>
+                    <p className="text-sm text-gray-300">Creating meaningful change in communities globally</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Deep Detailed Content Section */}
       <section className="relative py-20 z-10" data-scroll-animate id="detailed-content">
         <div className="container">
