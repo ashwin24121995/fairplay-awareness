@@ -350,27 +350,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Topics Grid Section */}
+      {/* Topics Grid Section - Enhanced Design */}
       <section id="topics" className="py-20 relative z-10" data-scroll-animate>
         <div className="container">
-          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible('topics') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-5xl font-black mb-4">
-              <span className="text-gradient">Explore</span> <span className="text-white">Topics</span>
+          <div className={`text-center mb-20 transition-all duration-1000 ${isVisible('topics') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h2 className="text-6xl font-black mb-6">
+              <span className="text-gradient">Explore</span> <span className="text-white">Our</span> <span className="text-gradient">Topics</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Deep dive into 5 comprehensive learning modules covering all aspects of fairplay
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Master ethical behavior across 5 comprehensive domains. Each module contains 5,000-7,000 words of deep content, interactive quizzes, and real-world applications designed to transform your understanding of fairplay.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {topics.map((topic, idx) => (
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {topics.slice(0, 2).map((topic, idx) => (
               <Link key={idx} href={`/learn/${topic.id}`}>
-                <a className={`group card-3d p-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 backdrop-blur hover:border-purple-400/50 transition-all duration-700 cursor-pointer ${isVisible('topics') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: `${idx * 100}ms`}}>
-                  <div className="text-4xl mb-4">{topic.icon}</div>
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">{topic.title}</h3>
-                  <p className="text-gray-300 mb-4 line-clamp-2">{topic.description}</p>
-                  <div className="flex items-center text-purple-400 group-hover:text-purple-300 transition-colors">
-                    Learn More <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <a className={`group relative overflow-hidden rounded-2xl cursor-pointer transition-all duration-700 ${isVisible('topics') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: `${idx * 100}ms`}}>
+                  {/* Background Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 group-hover:from-blue-500/40 group-hover:via-purple-500/40 group-hover:to-pink-500/40 transition-all duration-700"></div>
+                  
+                  {/* Border */}
+                  <div className="absolute inset-0 border-2 border-gradient rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{borderImage: 'linear-gradient(135deg, #3b82f6, #a855f7, #ec4899) 1'}}></div>
+                  
+                  {/* Content */}
+                  <div className="relative p-10 h-full flex flex-col justify-between backdrop-blur">
+                    <div>
+                      <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500">{topic.icon}</div>
+                      <h3 className="text-4xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-500">{topic.title}</h3>
+                      <p className="text-gray-300 text-lg leading-relaxed mb-6">{topic.description}</p>
+                      
+                      {/* Topic Stats */}
+                      <div className="grid grid-cols-3 gap-4 mb-6">
+                        <div className="bg-white/10 rounded-lg p-3 text-center backdrop-blur border border-white/10">
+                          <div className="text-2xl font-bold text-blue-400">5K+</div>
+                          <p className="text-xs text-gray-400">Words</p>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3 text-center backdrop-blur border border-white/10">
+                          <div className="text-2xl font-bold text-purple-400">10+</div>
+                          <p className="text-xs text-gray-400">Quizzes</p>
+                        </div>
+                        <div className="bg-white/10 rounded-lg p-3 text-center backdrop-blur border border-white/10">
+                          <div className="text-2xl font-bold text-pink-400">30min</div>
+                          <p className="text-xs text-gray-400">Avg Time</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* CTA Button */}
+                    <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                      <span className="text-purple-400 font-semibold">Start Learning</span>
+                      <ArrowRight className="w-5 h-5 text-purple-400 group-hover:translate-x-2 transition-transform" />
+                    </div>
+                  </div>
+                </a>
+              </Link>
+            ))}
+          </div>
+
+          {/* Smaller Cards for Remaining Topics */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {topics.slice(2).map((topic, idx) => (
+              <Link key={idx + 2} href={`/learn/${topic.id}`}>
+                <a className={`group relative overflow-hidden rounded-xl cursor-pointer transition-all duration-700 ${isVisible('topics') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: `${(idx + 2) * 100}ms`}}>
+                  {/* Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-orange-500/20 group-hover:from-purple-500/40 group-hover:via-pink-500/40 group-hover:to-orange-500/40 transition-all duration-700"></div>
+                  
+                  {/* Content */}
+                  <div className="relative p-8 h-full flex flex-col justify-between backdrop-blur border border-white/10 rounded-xl group-hover:border-purple-400/50 transition-all duration-700">
+                    <div>
+                      <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-500">{topic.icon}</div>
+                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">{topic.title}</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-2">{topic.description}</p>
+                    </div>
+                    
+                    {/* Mini Stats */}
+                    <div className="flex gap-2 text-xs text-gray-400 pt-4 border-t border-white/10">
+                      <span>📚 5K+ words</span>
+                      <span>•</span>
+                      <span>❓ 10+ Q's</span>
+                    </div>
                   </div>
                 </a>
               </Link>
