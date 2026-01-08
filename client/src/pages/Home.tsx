@@ -31,9 +31,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border shadow-sm">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0D7377] to-[#F4A261] flex items-center justify-center">
-              <span className="text-white font-bold text-lg">⚖️</span>
-            </div>
+            <img src="/logo.png" alt="Fairplay Awareness" className="w-10 h-10" />
             <h1 className="font-bold text-lg text-[#0D7377]">Fairplay Awareness</h1>
           </div>
           <div className="flex gap-4">
