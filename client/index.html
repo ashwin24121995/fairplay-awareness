@@ -14,15 +14,36 @@
     <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="theme-color" content="#0D7377" />
     
-    <!-- Google Fonts: Poppins for headings, Inter for body -->
+    <!-- Performance: DNS Prefetch and Preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
+    <!-- Google Fonts: Poppins for headings, Inter for body -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- Performance: Preload critical resources -->
+    <link rel="preload" as="image" href="/hero-new.webp" />
+    <link rel="preload" as="image" href="/logo-new.webp" />
+    
+    <!-- Performance: Resource hints -->
+    <link rel="prefetch" href="/images/sports-fairplay.webp" />
+    <link rel="prefetch" href="/images/gaming-fairplay.webp" />
   </head>
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx" defer></script>
+    
+    <!-- Performance: Service Worker for offline support -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </body>
 
 </html>
