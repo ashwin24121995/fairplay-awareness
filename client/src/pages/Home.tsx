@@ -131,136 +131,110 @@ export default function Home() {
       {/* Global Navigation */}
       <Navbar />
 
-      {/* Hero Section with Carousel Slides */}
-      <section className="relative pt-4 md:pt-8 pb-12 md:pb-32 overflow-hidden">
-        <div className="container relative z-10 px-4 md:px-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-3 md:space-y-8 slide-in-up">
-              <div className="inline-block px-2 md:px-4 py-1 md:py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-400/30 backdrop-blur">
-                <span className="text-xs md:text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">✨ Global Educational Platform</span>
-              </div>
-              
-              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
-                <span className="text-gradient">Promote</span>
-                <br />
-                <span className="text-white">Fairplay</span>
-                <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Globally</span>
-              </h1>
+      {/* Hero Section - Full Width Modern Design */}
+      <section className="relative w-full overflow-hidden min-h-screen md:min-h-[600px] flex items-center">
+        {/* Background Image Carousel */}
+        <div className="absolute inset-0 z-0">
+          {heroSlides.map((slide, idx) => (
+            <div
+              key={idx}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                idx === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-purple-900/80 to-slate-900/60"></div>
+            </div>
+          ))}
+        </div>
 
-              <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg">
-                Master ethical behavior and fairness across Sports, Gaming, Business, Education, and General Life. Join thousands of learners transforming their understanding through interactive content and real-world applications.
-              </p>
-
-              {/* Quick Search Topic Buttons */}
-              <div className="flex flex-wrap gap-1.5 md:gap-3 justify-start pt-3 md:pt-8">
-                {topics.map((topic) => {
-                  const getIcon = () => {
-                    if (topic.icon === "Trophy") return <Trophy className="w-4 h-4" />;
-                    if (topic.icon === "Gamepad2") return <Gamepad2 className="w-4 h-4" />;
-                    if (topic.icon === "Briefcase") return <Briefcase className="w-4 h-4" />;
-                    if (topic.icon === "BookOpen") return <BookOpen className="w-4 h-4" />;
-                    if (topic.icon === "Globe") return <Globe className="w-4 h-4" />;
-                    return null;
-                  };
-                  return (
-                    <Link key={topic.id} href={`/learn/${topic.id}`}>
-                      <a className="inline-flex items-center gap-2 px-2.5 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/40 hover:to-purple-500/40 border border-purple-400/30 hover:border-purple-400/60 rounded-full text-xs md:text-sm font-medium text-white transition-all duration-300 group">
-                        {getIcon()}
-                        <span className="group-hover:text-purple-300 transition-colors">{topic.shortTitle}</span>
-                      </a>
-                    </Link>
-                  );
-                })}
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-2 md:gap-4 pt-3 md:pt-8">
-                <a href="#topics" className="w-full md:w-auto">
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white gap-2 px-4 md:px-8 py-3 md:py-6 text-xs md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-                    Start Learning Now <ArrowRight className="w-4 md:w-5 h-4 md:h-5" />
-                  </Button>
-                </a>
-                <Button variant="outline" className="w-full md:w-auto border-purple-400 text-purple-300 hover:bg-purple-500/20 px-4 md:px-8 py-3 md:py-6 text-xs md:text-lg font-semibold backdrop-blur">
-                  Learn How It Works
-                </Button>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-1.5 md:gap-4 pt-3 md:pt-8">
-                <div className="p-1.5 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
-                  <div className="text-base md:text-2xl font-bold text-blue-400">5</div>
-                  <p className="text-xs text-gray-400">Topics</p>
-                </div>
-                <div className="p-1.5 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
-                  <div className="text-base md:text-2xl font-bold text-purple-400">50+</div>
-                  <p className="text-xs text-gray-400">Quizzes</p>
-                </div>
-                <div className="p-1.5 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
-                  <div className="text-base md:text-2xl font-bold text-pink-400">10K+</div>
-                  <p className="text-xs text-gray-400">Learners</p>
-                </div>
-              </div>
+        {/* Hero Content */}
+        <div className="relative z-10 container px-3 sm:px-4 md:px-6 py-12 sm:py-16 md:py-24 lg:py-32">
+          <div className="max-w-3xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/20 border border-blue-400/40 rounded-full mb-4 md:mb-6">
+              <Sparkles className="w-4 h-4 text-blue-400" />
+              <span className="text-xs md:text-sm font-semibold text-blue-300">Global Educational Platform</span>
             </div>
 
-            {/* Right Visual - Carousel Slides */}
-            <div className="relative w-full h-48 sm:h-56 md:h-80 lg:h-96 flex flex-col items-center justify-center gap-2 md:gap-6 mt-6 md:mt-0">
-              {/* Main Slide */}
-              <div className="relative w-full h-40 sm:h-48 md:h-72 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl md:rounded-3xl blur-3xl"></div>
-                <div className="relative float-animation h-full">
-                  <img 
-                    src={heroSlides[currentSlide].image}
-                    alt={heroSlides[currentSlide].title}
-                    className="rounded-xl md:rounded-3xl shadow-2xl w-full h-full object-cover border-2 border-purple-400/30 transition-all duration-700"
-                  />
-                  {/* Slide Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl md:rounded-3xl flex items-end p-2 md:p-6">
-                    <div className="text-white">
-                      <h3 className="text-base md:text-2xl font-bold mb-1 md:mb-2">{heroSlides[currentSlide].title}</h3>
-                      <p className="text-xs md:text-sm text-gray-200">{heroSlides[currentSlide].description}</p>
-                    </div>
-                  </div>
-                </div>
+            {/* Main Heading */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 md:mb-6">
+              <span className="block text-white mb-2">Promote</span>
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay Globally</span>
+            </h1>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 md:mb-8 max-w-2xl leading-relaxed">
+              Master ethical behavior and fairness across Sports, Gaming, Business, Education, and General Life. Join thousands transforming their understanding through interactive content and real-world applications.
+            </p>
+
+            {/* Quick Search Topic Buttons */}
+            <div className="flex flex-wrap gap-1.5 md:gap-3 mb-6 md:mb-8">
+              {topics.map((topic) => {
+                const getIcon = () => {
+                  if (topic.icon === "Trophy") return <Trophy className="w-4 h-4" />;
+                  if (topic.icon === "Gamepad2") return <Gamepad2 className="w-4 h-4" />;
+                  if (topic.icon === "Briefcase") return <Briefcase className="w-4 h-4" />;
+                  if (topic.icon === "BookOpen") return <BookOpen className="w-4 h-4" />;
+                  if (topic.icon === "Globe") return <Globe className="w-4 h-4" />;
+                  return null;
+                };
+                return (
+                  <Link key={topic.id} href={`/learn/${topic.id}`}>
+                    <a className="inline-flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/40 hover:to-purple-500/40 border border-purple-400/30 hover:border-purple-400/60 rounded-full text-xs md:text-sm font-medium text-white transition-all duration-300 group">
+                      {getIcon()}
+                      <span className="group-hover:text-purple-300 transition-colors">{topic.shortTitle}</span>
+                    </a>
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12">
+              <a href="#topics" className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105 text-sm md:text-base">
+                Start Learning <ArrowRight className="w-4 h-4" />
+              </a>
+              <button className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 border-2 border-purple-400 text-purple-300 hover:bg-purple-500/20 font-semibold rounded-lg transition-all text-sm md:text-base">
+                Learn More
+              </button>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
+              <div className="p-2 md:p-4 bg-white/10 backdrop-blur border border-white/20 rounded-lg">
+                <div className="text-lg md:text-2xl font-bold text-blue-400">5</div>
+                <p className="text-xs md:text-sm text-gray-400 mt-1">Topics</p>
               </div>
-
-              {/* Slide Indicators and Controls */}
-              <div className="flex items-center justify-between w-full px-0.5 md:px-2">
-                <button
-                  onClick={() => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
-                  className="p-1 md:p-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full text-white transition-all transform hover:scale-110"
-                >
-                  <ChevronLeft className="w-4 md:w-5 h-4 md:h-5" />
-                </button>
-                
-                <div className="flex gap-0.5 md:gap-2">
-                  {heroSlides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`h-1 md:h-2 rounded-full transition-all ${
-                        index === currentSlide
-                          ? "bg-gradient-to-r from-blue-400 to-purple-400 w-6 md:w-8"
-                          : "bg-white/30 w-1 md:w-2 hover:bg-white/50"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
-                  className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full text-white transition-all transform hover:scale-110"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
+              <div className="p-2 md:p-4 bg-white/10 backdrop-blur border border-white/20 rounded-lg">
+                <div className="text-lg md:text-2xl font-bold text-purple-400">50+</div>
+                <p className="text-xs md:text-sm text-gray-400 mt-1">Quizzes</p>
               </div>
-
-              {/* Slide Counter */}
-              <div className="text-center text-xs md:text-sm text-purple-300 font-semibold">
-                {currentSlide + 1} / {heroSlides.length}
+              <div className="p-2 md:p-4 bg-white/10 backdrop-blur border border-white/20 rounded-lg">
+                <div className="text-lg md:text-2xl font-bold text-pink-400">10K+</div>
+                <p className="text-xs md:text-sm text-gray-400 mt-1">Learners</p>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-2 rounded-full transition-all ${
+                idx === currentSlide
+                  ? "bg-white w-8"
+                  : "bg-white/40 w-2 hover:bg-white/60"
+              }`}
+            />
+          ))}
         </div>
       </section>
 
