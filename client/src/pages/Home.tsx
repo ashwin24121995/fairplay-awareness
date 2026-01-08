@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getAllTopics } from "@/lib/fairplayData";
-import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Trophy, Gamepad2, Briefcase, BookOpen, Search, X } from "lucide-react";
+import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Trophy, Gamepad2, Briefcase, BookOpen, Search, X, Lightbulb } from "lucide-react";
 import { useState, useEffect } from "react";
 
 /**
@@ -364,8 +364,11 @@ export default function Home() {
                 <h2 className="text-5xl font-black mb-6">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Who We Are</span>
                 </h2>
-                <p className="text-xl text-gray-300 leading-relaxed mb-6">
-                  Fairplay Awareness is a global educational initiative dedicated to promoting ethical behavior and fairness across all aspects of life. We believe that integrity, honesty, and respect form the foundation of a thriving society.
+                <p className="text-lg text-gray-300 leading-relaxed mb-4">
+                  Fairplay Awareness is a comprehensive global educational initiative dedicated to promoting ethical behavior, fairness, and integrity across all aspects of human life. We believe that ethical conduct, honesty, and mutual respect form the unshakeable foundation of a thriving, equitable, and sustainable society.
+                </p>
+                <p className="text-base text-gray-400 leading-relaxed">
+                  Founded on the principle that fairplay transcends sports and extends into every domain of human interaction, we have developed an innovative, evidence-based learning platform that empowers individuals, teams, and organizations to understand and practice ethical principles in real-world contexts.
                 </p>
               </div>
 
@@ -375,8 +378,22 @@ export default function Home() {
                   <Target className="w-6 h-6 text-blue-400" />
                   Our Mission
                 </h3>
+                <p className="text-gray-200 leading-relaxed mb-4">
+                  To empower individuals, teams, and organizations worldwide with comprehensive knowledge, practical skills, and deeply rooted values needed to practice fairplay consistently in every aspect of their lives—from competitive sports and gaming to business operations, educational environments, and everyday personal interactions.
+                </p>
+                <p className="text-sm text-gray-300 leading-relaxed italic">
+                  We believe that when people understand and embrace fairplay principles, they become agents of positive change in their communities, inspiring others to act with integrity.
+                </p>
+              </div>
+
+              {/* Vision Statement */}
+              <div className="bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-orange-500/20 rounded-2xl p-8 border border-white/10 backdrop-blur">
+                <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                  <Sparkles className="w-6 h-6 text-purple-400" />
+                  Our Vision
+                </h3>
                 <p className="text-gray-200 leading-relaxed">
-                  To empower individuals and organizations worldwide with the knowledge, skills, and values needed to practice fairplay in every aspect of their lives—from sports and gaming to business, education, and everyday interactions.
+                  A world where fairplay is the universal standard where individuals make ethical decisions instinctively, organizations operate with transparency and integrity, and communities thrive through mutual respect and cooperation.
                 </p>
               </div>
 
@@ -387,23 +404,49 @@ export default function Home() {
                   Our Core Values
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all">
-                    <div className="text-blue-400 font-bold mb-2">Integrity</div>
-                    <p className="text-sm text-gray-300">Unwavering commitment to honesty and ethical conduct</p>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all group">
+                    <div className="text-blue-400 font-bold mb-2 group-hover:text-blue-300 transition-colors">Integrity</div>
+                    <p className="text-sm text-gray-300">Unwavering commitment to honesty, transparency, and ethical conduct in all dealings</p>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all">
-                    <div className="text-purple-400 font-bold mb-2">Respect</div>
-                    <p className="text-sm text-gray-300">Valuing others' rights and treating everyone fairly</p>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all group">
+                    <div className="text-purple-400 font-bold mb-2 group-hover:text-purple-300 transition-colors">Respect</div>
+                    <p className="text-sm text-gray-300">Valuing others' rights, dignity, and perspectives while treating everyone fairly and equitably</p>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all">
-                    <div className="text-pink-400 font-bold mb-2">Excellence</div>
-                    <p className="text-sm text-gray-300">Striving for the highest standards in everything</p>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all group">
+                    <div className="text-pink-400 font-bold mb-2 group-hover:text-pink-300 transition-colors">Excellence</div>
+                    <p className="text-sm text-gray-300">Striving for the highest standards in content quality, learning outcomes, and organizational practices</p>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all">
-                    <div className="text-orange-400 font-bold mb-2">Impact</div>
-                    <p className="text-sm text-gray-300">Creating meaningful change in communities globally</p>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all group">
+                    <div className="text-orange-400 font-bold mb-2 group-hover:text-orange-300 transition-colors">Impact</div>
+                    <p className="text-sm text-gray-300">Creating measurable, meaningful change in communities and transforming ethical understanding globally</p>
                   </div>
                 </div>
+              </div>
+
+              {/* Why Fairplay Matters */}
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+                <h3 className="text-xl font-bold text-white flex items-center gap-3">
+                  <Lightbulb className="w-6 h-6 text-yellow-400" />
+                  Why Fairplay Matters
+                </h3>
+                <ul className="space-y-3 text-gray-300 text-sm">
+                  <li className="flex gap-3">
+                    <span className="text-blue-400 font-bold">•</span>
+                    <span><strong>Builds Trust:</strong> Fairplay creates an environment of trust and psychological safety where people feel valued and respected</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-purple-400 font-bold">•</span>
+                    <span><strong>Enhances Performance:</strong> Teams that practice fairplay achieve better results through improved collaboration and morale</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-pink-400 font-bold">•</span>
+                    <span><strong>Develops Character:</strong> Learning fairplay principles develops resilience, empathy, and strong moral character</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-orange-400 font-bold">•</span>
+                    <span><strong>Creates Sustainable Growth:</strong> Organizations built on fairplay experience sustainable, ethical growth and positive reputation</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
