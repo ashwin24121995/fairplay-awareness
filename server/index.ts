@@ -18,10 +18,22 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
+  // Serve static files that should not be routed through React
+  app.get("/sitemap.xml", (_req, res) => {
+    res.setHeader("Content-Type", "application/xml");
+    res.sendFile(path.join(staticPath, "sitemap.xml"));
+  });
+
+  app.get("/robots.txt", (_req, res) => {
+    res.setHeader("Content-Type", "text/plain");
+    res.sendFile(path.join(staticPath, "robots.txt"));
+  });
+
   // Handle client-side routing - serve index.html for all routes
   app.get("*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });
+  
 
   const port = process.env.PORT || 3000;
 
