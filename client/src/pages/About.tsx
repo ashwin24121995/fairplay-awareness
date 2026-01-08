@@ -2,6 +2,7 @@ import { ArrowRight, Heart, Target, Users, Zap, Globe, BookOpen, Award, Trending
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { useState, useEffect } from 'react';
+import Footer from '@/components/Footer';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
