@@ -343,23 +343,8 @@ export default function Home() {
       <section className="relative py-20 z-10 overflow-hidden" data-scroll-animate id="about">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Left - Visual Element */}
-            <div className={`relative transition-all duration-1000 ${isVisible('about') ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <div className="relative h-96 rounded-2xl overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 backdrop-blur-xl"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay</div>
-                    <div className="text-2xl text-white font-bold">Global Awareness Initiative</div>
-                    <div className="text-gray-300 text-sm">Promoting Ethical Behavior Worldwide</div>
-                  </div>
-                </div>
-                <div className="absolute inset-0 border border-white/20 rounded-2xl group-hover:border-purple-400/50 transition-all"></div>
-              </div>
-            </div>
-
-            {/* Right - Content */}
-            <div className={`space-y-8 transition-all duration-1000 ${isVisible('about') ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            {/* Left - Content */}
+            <div className={`space-y-8 transition-all duration-1000 ${isVisible('about') ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <div>
                 <h2 className="text-5xl font-black mb-6">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Who We Are</span>
@@ -447,6 +432,78 @@ export default function Home() {
                     <span><strong>Creates Sustainable Growth:</strong> Organizations built on fairplay experience sustainable, ethical growth and positive reputation</span>
                   </li>
                 </ul>
+              </div>
+            </div>
+
+            {/* Right - Dynamic Visuals and Graphs */}
+            <div className={`space-y-6 transition-all duration-1000 ${isVisible('about') ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+              {/* Impact Statistics Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-2xl p-6 border border-blue-400/30 hover:border-blue-400/60 transition-all group">
+                  <div className="text-3xl font-black text-blue-400 mb-2 group-hover:scale-110 transition-transform">50K+</div>
+                  <div className="text-sm text-gray-300">Learners Worldwide</div>
+                  <div className="h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mt-3 w-full"></div>
+                </div>
+                <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-2xl p-6 border border-purple-400/30 hover:border-purple-400/60 transition-all group">
+                  <div className="text-3xl font-black text-purple-400 mb-2 group-hover:scale-110 transition-transform">150+</div>
+                  <div className="text-sm text-gray-300">Countries Reached</div>
+                  <div className="h-1 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mt-3 w-full"></div>
+                </div>
+                <div className="bg-gradient-to-br from-pink-500/20 to-pink-600/20 rounded-2xl p-6 border border-pink-400/30 hover:border-pink-400/60 transition-all group">
+                  <div className="text-3xl font-black text-pink-400 mb-2 group-hover:scale-110 transition-transform">10K+</div>
+                  <div className="text-sm text-gray-300">Quizzes Completed</div>
+                  <div className="h-1 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mt-3 w-full"></div>
+                </div>
+                <div className="bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-2xl p-6 border border-orange-400/30 hover:border-orange-400/60 transition-all group">
+                  <div className="text-3xl font-black text-orange-400 mb-2 group-hover:scale-110 transition-transform">98%</div>
+                  <div className="text-sm text-gray-300">Satisfaction Rate</div>
+                  <div className="h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mt-3 w-full"></div>
+                </div>
+              </div>
+
+              {/* Animated Progress Bars */}
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-6">
+                <h3 className="text-xl font-bold text-white">Learning Engagement</h3>
+                
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm text-gray-300">Sports Fairplay</span>
+                    <span className="text-sm text-blue-400 font-bold">92%</span>
+                  </div>
+                  <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+                    <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-full rounded-full transition-all duration-1000" style={{width: '92%', animation: 'pulse 2s ease-in-out infinite'}}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm text-gray-300">Gaming Ethics</span>
+                    <span className="text-sm text-purple-400 font-bold">87%</span>
+                  </div>
+                  <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+                    <div className="bg-gradient-to-r from-purple-500 to-purple-400 h-full rounded-full transition-all duration-1000" style={{width: '87%', animation: 'pulse 2s ease-in-out infinite 0.2s'}}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm text-gray-300">Business Integrity</span>
+                    <span className="text-sm text-pink-400 font-bold">94%</span>
+                  </div>
+                  <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+                    <div className="bg-gradient-to-r from-pink-500 to-pink-400 h-full rounded-full transition-all duration-1000" style={{width: '94%', animation: 'pulse 2s ease-in-out infinite 0.4s'}}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm text-gray-300">Educational Values</span>
+                    <span className="text-sm text-orange-400 font-bold">89%</span>
+                  </div>
+                  <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+                    <div className="bg-gradient-to-r from-orange-500 to-orange-400 h-full rounded-full transition-all duration-1000" style={{width: '89%', animation: 'pulse 2s ease-in-out infinite 0.6s'}}></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
