@@ -111,7 +111,7 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8">
           <div className="grid md:grid-cols-3 gap-8 items-center">
             <div className="text-gray-400 text-sm">
-              <p>&copy; 2024 Fairplay Awareness. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} Fairplay Awareness. All rights reserved.</p>
             </div>
             <div className="text-center text-gray-500 text-xs">
               <p>Empowering Global Communities Through Ethical Education</p>
