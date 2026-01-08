@@ -132,16 +132,16 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section with Carousel Slides */}
-      <section className="relative pt-6 md:pt-8 pb-16 md:pb-32 overflow-hidden">
+      <section className="relative pt-4 md:pt-8 pb-12 md:pb-32 overflow-hidden">
         <div className="container relative z-10 px-4 md:px-0">
-          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 items-center">
             {/* Left Content */}
-            <div className="space-y-4 md:space-y-8 slide-in-up">
-              <div className="inline-block px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-400/30 backdrop-blur">
+            <div className="space-y-3 md:space-y-8 slide-in-up">
+              <div className="inline-block px-2 md:px-4 py-1 md:py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-400/30 backdrop-blur">
                 <span className="text-xs md:text-sm font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">✨ Global Educational Platform</span>
               </div>
               
-              <h1 className="text-3xl md:text-6xl lg:text-7xl font-black leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
                 <span className="text-gradient">Promote</span>
                 <br />
                 <span className="text-white">Fairplay</span>
@@ -149,12 +149,12 @@ export default function Home() {
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Globally</span>
               </h1>
 
-              <p className="text-base md:text-xl text-gray-300 leading-relaxed max-w-lg">
+              <p className="text-sm md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg">
                 Master ethical behavior and fairness across Sports, Gaming, Business, Education, and General Life. Join thousands of learners transforming their understanding through interactive content and real-world applications.
               </p>
 
               {/* Quick Search Topic Buttons */}
-              <div className="flex flex-wrap gap-2 md:gap-3 justify-start md:justify-center pt-4 md:pt-8">
+              <div className="flex flex-wrap gap-1.5 md:gap-3 justify-start pt-3 md:pt-8">
                 {topics.map((topic) => {
                   const getIcon = () => {
                     if (topic.icon === "Trophy") return <Trophy className="w-4 h-4" />;
@@ -166,7 +166,7 @@ export default function Home() {
                   };
                   return (
                     <Link key={topic.id} href={`/learn/${topic.id}`}>
-                      <a className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/40 hover:to-purple-500/40 border border-purple-400/30 hover:border-purple-400/60 rounded-full text-sm font-medium text-white transition-all duration-300 group">
+                      <a className="inline-flex items-center gap-2 px-2.5 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/40 hover:to-purple-500/40 border border-purple-400/30 hover:border-purple-400/60 rounded-full text-xs md:text-sm font-medium text-white transition-all duration-300 group">
                         {getIcon()}
                         <span className="group-hover:text-purple-300 transition-colors">{topic.shortTitle}</span>
                       </a>
@@ -175,49 +175,49 @@ export default function Home() {
                 })}
               </div>
 
-              <div className="flex flex-col md:flex-row gap-2 md:gap-4 pt-4 md:pt-8">
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-4 pt-3 md:pt-8">
                 <a href="#topics" className="w-full md:w-auto">
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white gap-2 px-6 md:px-8 py-4 md:py-6 text-sm md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white gap-2 px-4 md:px-8 py-3 md:py-6 text-xs md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
                     Start Learning Now <ArrowRight className="w-4 md:w-5 h-4 md:h-5" />
                   </Button>
                 </a>
-                <Button variant="outline" className="w-full md:w-auto border-purple-400 text-purple-300 hover:bg-purple-500/20 px-6 md:px-8 py-4 md:py-6 text-sm md:text-lg font-semibold backdrop-blur">
+                <Button variant="outline" className="w-full md:w-auto border-purple-400 text-purple-300 hover:bg-purple-500/20 px-4 md:px-8 py-3 md:py-6 text-xs md:text-lg font-semibold backdrop-blur">
                   Learn How It Works
                 </Button>
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-2 md:gap-4 pt-4 md:pt-8">
-                <div className="p-2 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
-                  <div className="text-lg md:text-2xl font-bold text-blue-400">5</div>
+              <div className="grid grid-cols-3 gap-1.5 md:gap-4 pt-3 md:pt-8">
+                <div className="p-1.5 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
+                  <div className="text-base md:text-2xl font-bold text-blue-400">5</div>
                   <p className="text-xs text-gray-400">Topics</p>
                 </div>
-                <div className="p-2 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
-                  <div className="text-lg md:text-2xl font-bold text-purple-400">50+</div>
+                <div className="p-1.5 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
+                  <div className="text-base md:text-2xl font-bold text-purple-400">50+</div>
                   <p className="text-xs text-gray-400">Quizzes</p>
                 </div>
-                <div className="p-2 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
-                  <div className="text-lg md:text-2xl font-bold text-pink-400">10K+</div>
+                <div className="p-1.5 md:p-4 bg-white/5 rounded-lg border border-white/10 backdrop-blur">
+                  <div className="text-base md:text-2xl font-bold text-pink-400">10K+</div>
                   <p className="text-xs text-gray-400">Learners</p>
                 </div>
               </div>
             </div>
 
             {/* Right Visual - Carousel Slides */}
-            <div className="relative h-64 md:h-96 lg:h-full flex flex-col items-center justify-center gap-4 md:gap-6 mt-8 md:mt-0">
+            <div className="relative w-full h-48 sm:h-56 md:h-80 lg:h-96 flex flex-col items-center justify-center gap-2 md:gap-6 mt-6 md:mt-0">
               {/* Main Slide */}
-              <div className="relative w-full h-56 md:h-80 overflow-hidden">
+              <div className="relative w-full h-40 sm:h-48 md:h-72 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl md:rounded-3xl blur-3xl"></div>
                 <div className="relative float-animation h-full">
                   <img 
                     src={heroSlides[currentSlide].image}
                     alt={heroSlides[currentSlide].title}
-                    className="rounded-2xl md:rounded-3xl shadow-2xl w-full h-full object-cover border-2 border-purple-400/30 transition-all duration-700"
+                    className="rounded-xl md:rounded-3xl shadow-2xl w-full h-full object-cover border-2 border-purple-400/30 transition-all duration-700"
                   />
                   {/* Slide Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-2xl md:rounded-3xl flex items-end p-3 md:p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl md:rounded-3xl flex items-end p-2 md:p-6">
                     <div className="text-white">
-                      <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-2">{heroSlides[currentSlide].title}</h3>
+                      <h3 className="text-base md:text-2xl font-bold mb-1 md:mb-2">{heroSlides[currentSlide].title}</h3>
                       <p className="text-xs md:text-sm text-gray-200">{heroSlides[currentSlide].description}</p>
                     </div>
                   </div>
@@ -225,7 +225,7 @@ export default function Home() {
               </div>
 
               {/* Slide Indicators and Controls */}
-              <div className="flex items-center justify-between w-full px-1 md:px-2">
+              <div className="flex items-center justify-between w-full px-0.5 md:px-2">
                 <button
                   onClick={() => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
                   className="p-1 md:p-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 rounded-full text-white transition-all transform hover:scale-110"
@@ -233,7 +233,7 @@ export default function Home() {
                   <ChevronLeft className="w-4 md:w-5 h-4 md:h-5" />
                 </button>
                 
-                <div className="flex gap-1 md:gap-2">
+                <div className="flex gap-0.5 md:gap-2">
                   {heroSlides.map((_, index) => (
                     <button
                       key={index}
@@ -256,7 +256,7 @@ export default function Home() {
               </div>
 
               {/* Slide Counter */}
-              <div className="text-center text-sm text-purple-300 font-semibold">
+              <div className="text-center text-xs md:text-sm text-purple-300 font-semibold">
                 {currentSlide + 1} / {heroSlides.length}
               </div>
             </div>
