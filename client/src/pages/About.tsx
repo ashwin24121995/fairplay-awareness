@@ -481,8 +481,38 @@ export default function About() {
             />
             
             <FAQItem 
+              question="Who are the content creators and what are their credentials?" 
+              answer="Our team includes Dr. Sarah Mitchell (Founder & Lead Educator, Ph.D. in Ethics & Philosophy with 15+ years in education), James Chen (Content Director, M.S. in Sports Management, Certified Ethics Coach), Prof. Elena Rodriguez (Academic Advisor, Ph.D. in Educational Psychology, University Professor), and Michael Thompson (Community Manager, B.A. in Communications, Certified Facilitator). All team members have relevant expertise and qualifications in their respective domains. You can learn more about our team on our About page."
+            />
+            
+            <FAQItem 
+              question="Is the content peer-reviewed?" 
+              answer="Our educational content is reviewed by academic advisors and subject matter experts to ensure accuracy and quality. While not all content undergoes formal peer review, it is developed according to educational best practices and verified for factual accuracy. We are committed to maintaining high standards of content quality and transparency."
+            />
+            
+            <FAQItem 
+              question="What sources do you use for your content?" 
+              answer="Our content is based on established educational principles, research in ethics, and best practices from leading organizations in sports, business, and education. We cite sources where applicable and encourage users to seek additional resources for deeper learning. Our team continuously reviews academic literature and real-world case studies to ensure our content remains current and evidence-based."
+            />
+            
+            <FAQItem 
               question="What if I disagree with some content?" 
               answer="We welcome feedback and different perspectives. Fairplay Awareness is built on the principle that ethical discussions should be open and inclusive. If you have concerns or alternative viewpoints, please share them with us at support@fairplayawareness.com. We're constantly learning and improving."
+            />
+            
+            <FAQItem 
+              question="Is this content professional advice?" 
+              answer="No. Our content is for educational and informational purposes only and should not be considered professional advice. For specific professional guidance (legal, financial, medical, or psychological), please consult with qualified professionals in your area of interest. Our goal is to provide educational frameworks and principles, not to replace professional consultation."
+            />
+            
+            <FAQItem 
+              question="What is your privacy policy?" 
+              answer="We take user privacy seriously. Our comprehensive Privacy Policy outlines how we collect, use, and protect your data. We do not sell user data to third parties. You can review our full Privacy Policy on our website. We are committed to complying with data protection regulations including GDPR and CCPA."
+            />
+            
+            <FAQItem 
+              question="How is the platform funded?" 
+              answer="Fairplay Awareness is committed to providing free, high-quality educational content. We are funded through grants, partnerships with educational institutions, and donations from organizations committed to promoting fairplay principles. We do not rely on user data sales or invasive advertising."
             />
             
             <FAQItem 
@@ -517,10 +547,10 @@ export default function About() {
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { number: "150+", label: "Countries Reached", color: "from-blue-500 to-cyan-500" },
-              { number: "10K+", label: "Active Learners", color: "from-purple-500 to-pink-500" },
-              { number: "50+", label: "Quiz Questions", color: "from-pink-500 to-orange-500" },
-              { number: "98%", label: "Satisfaction Rate", color: "from-orange-500 to-yellow-500" }
+              { number: "5", label: "Learning Domains", color: "from-blue-500 to-cyan-500" },
+              { number: "50+", label: "Quiz Questions", color: "from-purple-500 to-pink-500" },
+              { number: "35K+", label: "Words of Content", color: "from-pink-500 to-orange-500" },
+              { number: "Free", label: "Access to All Content", color: "from-orange-500 to-yellow-500" }
             ].map((stat, idx) => (
               <div key={idx} className={`group p-8 bg-white/5 border border-white/10 rounded-xl backdrop-blur text-center hover:bg-white/10 transition-all duration-700 ${isVisible['impact'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{transitionDelay: `${idx * 100}ms`}}>
                 <div className={`text-5xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-3`}>

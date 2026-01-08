@@ -370,23 +370,23 @@ export default function Home() {
               {/* Impact Statistics Cards */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-2xl p-6 border border-blue-400/30 hover:border-blue-400/60 transition-all group">
-                  <div className="text-3xl font-black text-blue-400 mb-2 group-hover:scale-110 transition-transform">50K+</div>
-                  <div className="text-sm text-gray-300">Learners Worldwide</div>
+                  <div className="text-3xl font-black text-blue-400 mb-2 group-hover:scale-110 transition-transform">5</div>
+                  <div className="text-sm text-gray-300">Learning Domains</div>
                   <div className="h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mt-3 w-full"></div>
                 </div>
                 <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-2xl p-6 border border-purple-400/30 hover:border-purple-400/60 transition-all group">
-                  <div className="text-3xl font-black text-purple-400 mb-2 group-hover:scale-110 transition-transform">150+</div>
-                  <div className="text-sm text-gray-300">Countries Reached</div>
+                  <div className="text-3xl font-black text-purple-400 mb-2 group-hover:scale-110 transition-transform">50+</div>
+                  <div className="text-sm text-gray-300">Quiz Questions</div>
                   <div className="h-1 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mt-3 w-full"></div>
                 </div>
                 <div className="bg-gradient-to-br from-pink-500/20 to-pink-600/20 rounded-2xl p-6 border border-pink-400/30 hover:border-pink-400/60 transition-all group">
-                  <div className="text-3xl font-black text-pink-400 mb-2 group-hover:scale-110 transition-transform">10K+</div>
-                  <div className="text-sm text-gray-300">Quizzes Completed</div>
+                  <div className="text-3xl font-black text-pink-400 mb-2 group-hover:scale-110 transition-transform">35K+</div>
+                  <div className="text-sm text-gray-300">Words of Content</div>
                   <div className="h-1 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full mt-3 w-full"></div>
                 </div>
                 <div className="bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-2xl p-6 border border-orange-400/30 hover:border-orange-400/60 transition-all group">
-                  <div className="text-3xl font-black text-orange-400 mb-2 group-hover:scale-110 transition-transform">98%</div>
-                  <div className="text-sm text-gray-300">Satisfaction Rate</div>
+                  <div className="text-3xl font-black text-orange-400 mb-2 group-hover:scale-110 transition-transform">Free</div>
+                  <div className="text-sm text-gray-300">Access to All Content</div>
                   <div className="h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mt-3 w-full"></div>
                 </div>
               </div>

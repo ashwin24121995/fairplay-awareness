@@ -95,16 +95,24 @@ export default function Footer() {
 
         {/* Disclaimer Section */}
         <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/30 rounded-lg p-6 mb-8 backdrop-blur">
-          <h4 className="text-sm font-bold text-blue-300 mb-3 uppercase tracking-wider">📋 Important Disclaimer</h4>
-          <p className="text-gray-300 text-sm leading-relaxed mb-3">
-            Fairplay Awareness is an educational platform designed exclusively for informational purposes. All content, materials, learning modules, quizzes, and resources provided on this website are intended to promote understanding of fairplay principles, ethical behavior, and integrity across various domains of life.
-          </p>
-          <p className="text-gray-300 text-sm leading-relaxed mb-3">
-            This platform does not provide professional advice of any kind, including but not limited to legal, medical, financial, business, or psychological guidance. The information presented is educational in nature and should not be considered as a substitute for professional consultation, expert advice, or official guidance from relevant authorities.
-          </p>
-          <p className="text-gray-300 text-sm leading-relaxed">
-            Users are solely responsible for how they interpret and apply the information from this platform. Fairplay Awareness assumes no liability for any actions taken based on the content provided. We encourage users to consult with qualified professionals for specific situations requiring expert guidance.
-          </p>
+          <h4 className="text-sm font-bold text-blue-300 mb-3 uppercase tracking-wider">📋 Important Disclaimer & Legal Notice</h4>
+          <div className="space-y-3">
+            <p className="text-gray-300 text-sm leading-relaxed">
+              <strong>Educational Purpose Only:</strong> Fairplay Awareness is an educational platform designed exclusively for informational purposes. All content, materials, learning modules, quizzes, and resources provided on this website are intended to promote understanding of fairplay principles, ethical behavior, and integrity across various domains of life (Sports, Gaming, Business, Education, and General Life).
+            </p>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              <strong>No Professional Advice:</strong> This platform does not provide professional advice of any kind, including but not limited to legal, medical, financial, business, or psychological guidance. The information presented is educational in nature and should not be considered as a substitute for professional consultation, expert advice, or official guidance from relevant authorities.
+            </p>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              <strong>User Responsibility:</strong> Users are solely responsible for how they interpret and apply the information from this platform. Fairplay Awareness assumes no liability for any actions taken based on the content provided. We strongly encourage users to consult with qualified professionals for specific situations requiring expert guidance.
+            </p>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              <strong>Content Accuracy:</strong> While we strive to provide accurate and up-to-date information, Fairplay Awareness makes no warranties regarding the completeness, accuracy, or reliability of the content. The information may change without notice.
+            </p>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              <strong>Legal Documents:</strong> Please review our <a href="/privacy-policy.md" className="text-purple-400 hover:text-purple-300 underline">Privacy Policy</a> and <a href="/terms-of-service.md" className="text-purple-400 hover:text-purple-300 underline">Terms of Service</a> for complete legal information regarding data protection, user rights, and platform usage.
+            </p>
+          </div>
         </div>
 
         {/* Bottom Footer */}
@@ -117,7 +125,12 @@ export default function Footer() {
               <p>Empowering Global Communities Through Ethical Education</p>
             </div>
             <div className="text-right text-gray-400 text-sm">
-              <p>Made with <span className="text-red-500">❤</span> for a fairer world</p>
+              <div className="flex justify-end gap-4 text-xs">
+                <a href="/privacy-policy.md" className="hover:text-purple-400 transition-colors">Privacy Policy</a>
+                <span className="text-gray-600">|</span>
+                <a href="/terms-of-service.md" className="hover:text-purple-400 transition-colors">Terms of Service</a>
+              </div>
+              <p className="mt-2">Made with <span className="text-red-500">❤</span> for a fairer world</p>
             </div>
           </div>
         </div>

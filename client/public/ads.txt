@@ -1,0 +1,17 @@
+# ads.txt
+# Fairplay Awareness
+# Last Updated: January 9, 2026
+# For more information about ads.txt, visit: https://iabtechlab.com/ads-txt/
+
+# This file contains the authorized digital sellers for Fairplay Awareness
+# Please note: This is a placeholder ads.txt file for compliance purposes.
+# If you plan to monetize this website with ads, add your ad network information here.
+
+# Example format:
+# <Ad System Domain>, <Seller Account ID>, <Account Type>, <Certification Authority ID>
+
+# Google Ad Manager
+google.com, pub-xxxxxxxxxxxxxxxx, DIRECT, f08c47fec0942fa0
+
+# If you use other ad networks, add them in the format above
+# Ensure all entries are accurate and authorized by the respective ad networks
