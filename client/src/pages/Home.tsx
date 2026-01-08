@@ -274,11 +274,11 @@ export default function Home() {
               <div className="flex gap-4 pt-8">
                 <a href="#topics">
                   <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white gap-2 px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-                    Explore All Topics <ArrowRight className="w-5 h-5" />
+                    Start Learning Now <ArrowRight className="w-5 h-5" />
                   </Button>
                 </a>
                 <Button variant="outline" className="border-purple-400 text-purple-300 hover:bg-purple-500/20 px-8 py-6 text-lg font-semibold backdrop-blur">
-                  Learn More
+                  Learn How It Works
                 </Button>
               </div>
 
@@ -768,13 +768,22 @@ export default function Home() {
                   <div className="text-4xl font-black text-white mb-2">{stat.value}</div>
                   <p className="text-gray-300">{stat.label}</p>
                 </div>
-              );
+                     );
             })}
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-20 text-center">
+            <a href="#topics">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white gap-2 px-10 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
+                Explore All 5 Topics <ArrowRight className="w-5 h-5" />
+              </Button>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Form Section */}
       <section id="contact" className="py-20 relative z-10" data-scroll-animate>
         <div className="container">
           <div className={`max-w-2xl mx-auto transition-all duration-1000 ${isVisible('contact') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -905,19 +914,18 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold text-white mb-4">Resources</h4>
+              <h4 className="text-lg font-bold text-white mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#features" className="hover:text-purple-400 transition-colors">Features</a></li>
-                <li><a href="#stats" className="hover:text-purple-400 transition-colors">Impact</a></li>
+                <li><a href="#about" className="hover:text-purple-400 transition-colors">About Us</a></li>
+                <li><a href="#faq" className="hover:text-purple-400 transition-colors">FAQ</a></li>
                 <li><a href="#contact" className="hover:text-purple-400 transition-colors">Contact</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold text-white mb-4">Connect</h4>
+              <h4 className="text-lg font-bold text-white mb-4">Support</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-purple-400 transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-purple-400 transition-colors">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-purple-400 transition-colors">Facebook</a></li>
+                <li><a href="mailto:support@fairplayawareness.com" className="hover:text-purple-400 transition-colors">support@fairplayawareness.com</a></li>
+                <li><p className="text-sm text-gray-500 mt-2">Have questions? Email us</p></li>
               </ul>
             </div>
           </div>
