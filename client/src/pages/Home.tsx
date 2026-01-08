@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getAllTopics } from "@/lib/fairplayData";
-import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Trophy, Gamepad2, Briefcase, BookOpen } from "lucide-react";
 import { useState, useEffect } from "react";
 
 /**
@@ -375,7 +375,13 @@ export default function Home() {
                   {/* Content */}
                   <div className="relative p-10 h-full flex flex-col justify-between backdrop-blur">
                     <div>
-                      <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500">{topic.icon}</div>
+                      <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500">
+                        {topic.icon === "Trophy" && <Trophy className="w-16 h-16 text-blue-400" />}
+                        {topic.icon === "Gamepad2" && <Gamepad2 className="w-16 h-16 text-purple-400" />}
+                        {topic.icon === "Briefcase" && <Briefcase className="w-16 h-16 text-pink-400" />}
+                        {topic.icon === "BookOpen" && <BookOpen className="w-16 h-16 text-orange-400" />}
+                        {topic.icon === "Globe" && <Globe className="w-16 h-16 text-cyan-400" />}
+                      </div>
                       <h3 className="text-4xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-500">{topic.title}</h3>
                       <p className="text-gray-300 text-lg leading-relaxed mb-6">{topic.description}</p>
                       
@@ -418,7 +424,13 @@ export default function Home() {
                   {/* Content */}
                   <div className="relative p-8 h-full flex flex-col justify-between backdrop-blur border border-white/10 rounded-xl group-hover:border-purple-400/50 transition-all duration-700">
                     <div>
-                      <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-500">{topic.icon}</div>
+                      <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-500">
+                        {topic.icon === "Trophy" && <Trophy className="w-12 h-12 text-blue-400" />}
+                        {topic.icon === "Gamepad2" && <Gamepad2 className="w-12 h-12 text-purple-400" />}
+                        {topic.icon === "Briefcase" && <Briefcase className="w-12 h-12 text-pink-400" />}
+                        {topic.icon === "BookOpen" && <BookOpen className="w-12 h-12 text-orange-400" />}
+                        {topic.icon === "Globe" && <Globe className="w-12 h-12 text-cyan-400" />}
+                      </div>
                       <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">{topic.title}</h3>
                       <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-2">{topic.description}</p>
                     </div>

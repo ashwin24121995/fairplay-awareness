@@ -32,7 +32,7 @@ export const topics: Topic[] = [
     shortTitle: "Sports",
     description: "Learn about fairplay principles in sports, including anti-cheating, doping prevention, and sportsmanship.",
     image: "/images/sports-fairplay.jpg",
-    icon: "⚽",
+    icon: "Trophy",
     color: "#0D7377",
     sections: {
       introduction: `Sports fairplay is the foundation of competitive integrity and mutual respect. It encompasses not only following the rules but embodying the spirit of honest competition. In sports, fairplay means competing with integrity, respecting opponents, accepting decisions with grace, and refusing to gain unfair advantages through cheating or doping. The importance of fairplay extends beyond individual games—it shapes character, builds trust, and creates a culture where excellence is achieved through legitimate effort. When fairplay principles are violated, the entire foundation of sport crumbles, undermining the achievements of honest competitors and damaging the sport's credibility globally.`,
@@ -136,7 +136,7 @@ export const topics: Topic[] = [
     shortTitle: "Gaming",
     description: "Explore fairplay in gaming and esports, including anti-cheat systems, competitive integrity, and community standards.",
     image: "/images/gaming-fairplay.jpg",
-    icon: "🎮",
+    icon: "Gamepad2",
     color: "#0D7377",
     sections: {
       introduction: `Gaming fairplay represents the commitment to honest competition in digital environments. As esports has grown into a multi-billion dollar industry with professional leagues and massive audiences, fairplay has become increasingly critical. Gaming fairplay includes preventing cheating through hacking and exploits, maintaining competitive integrity in tournaments, preventing toxic behavior that undermines community health, and ensuring that victories are earned through legitimate skill and strategy. The gaming community has developed sophisticated anti-cheat systems and community standards to protect the integrity of competition. When fairplay is compromised in gaming, it not only affects individual matches but can destroy entire gaming communities and undermine the credibility of professional esports.`,
@@ -240,7 +240,7 @@ export const topics: Topic[] = [
     shortTitle: "Business",
     description: "Understand ethical business practices, fair employee treatment, honest competition, and corporate responsibility.",
     image: "/images/business-fairplay.jpg",
-    icon: "💼",
+    icon: "Briefcase",
     color: "#0D7377",
     sections: {
       introduction: `Business fairplay is the foundation of sustainable economic growth and healthy organizations. It encompasses ethical business practices, fair treatment of employees, honest competition with other companies, respect for stakeholders, and corporate responsibility to society. When businesses operate with fairplay principles, they build trust with customers, attract talented employees, create sustainable competitive advantages, and contribute positively to society. Conversely, when businesses compromise fairplay through corruption, exploitation, or deception, they damage their reputation, face legal consequences, harm employees and communities, and ultimately undermine their own long-term success. Modern consumers and investors increasingly demand fairplay from businesses, making ethical conduct not just morally right but economically essential.`,
@@ -344,7 +344,7 @@ export const topics: Topic[] = [
     shortTitle: "Education",
     description: "Learn about academic integrity, plagiarism prevention, intellectual property respect, and fair assessment practices.",
     image: "/images/education-fairplay.jpg",
-    icon: "📚",
+    icon: "Globe",
     color: "#0D7377",
     sections: {
       introduction: `Academic fairplay is the foundation of meaningful education and intellectual development. It encompasses academic integrity (doing your own work), plagiarism prevention (respecting others' intellectual property), fair assessment practices (evaluating students honestly), and creating learning environments where all students have equal opportunities to succeed. When academic fairplay is maintained, education becomes transformative—students develop genuine knowledge, skills, and character. When academic fairplay is compromised through cheating and plagiarism, education becomes meaningless. Students who cheat deprive themselves of learning, damage their own development, and undermine the credibility of their qualifications. Academic institutions that tolerate unfairness damage their reputation and fail their mission to educate. In an increasingly knowledge-based economy, academic fairplay determines whether education serves its purpose of developing capable, ethical citizens.`,
@@ -448,7 +448,7 @@ export const topics: Topic[] = [
     shortTitle: "General Life",
     description: "Explore fairplay in everyday life, including honesty, respect for others' rights, fair transactions, and social responsibility.",
     image: "/images/general-life.jpg",
-    icon: "🌍",
+    icon: "BookOpen",
     color: "#0D7377",
     sections: {
       introduction: `Fairplay in general life is about applying ethical principles to everyday interactions and decisions. It encompasses everyday honesty (keeping promises, telling the truth), respect for others' rights (treating people fairly regardless of differences), fair transactions (honest dealing in commerce), empathy and compassion (understanding others' perspectives), and social responsibility (contributing positively to communities). When fairplay principles guide daily life, communities become places where people trust each other, cooperation flourishes, and everyone benefits. Conversely, when fairplay is absent, communities become places of suspicion, conflict, and suffering. Fairplay in everyday life is not just about following rules—it's about developing character, building meaningful relationships, and creating communities where everyone can thrive. These principles, learned and practiced daily, shape individuals, families, organizations, and ultimately entire societies.`,
