@@ -1,8 +1,8 @@
-import { useParams, useLocation } from "wouter";
 import { getTopic } from "@/lib/fairplayData";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useParams, useLocation } from "wouter";
+import Navbar from "@/components/Navbar";
 
 /**
  * Learning Page - Advanced 3D Design
@@ -41,19 +41,8 @@ export default function Learn() {
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 blob" style={{animationDelay: '2s'}}></div>
       </div>
 
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10">
-        <div className="container flex items-center justify-between py-4">
-          <Link href="/">
-            <a className="flex items-center gap-2 hover:opacity-70 transition-opacity">
-              <ArrowLeft className="w-5 h-5 text-blue-400" />
-              <span className="font-semibold text-white">Back</span>
-            </a>
-          </Link>
-          <h1 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{topic.title}</h1>
-          <div className="w-12"></div>
-        </div>
-      </nav>
+      {/* Global Navigation */}
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">

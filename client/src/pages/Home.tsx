@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getAllTopics } from "@/lib/fairplayData";
-import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Trophy, Gamepad2, Briefcase, BookOpen, Search, X, Lightbulb, ChevronDown } from "lucide-react";
+import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Lightbulb, ChevronDown, Trophy, Gamepad2, Briefcase, BookOpen } from "lucide-react";
 import { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 /**
  * Enhanced 3D Home Page - Fairplay Awareness
@@ -17,31 +18,10 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<typeof topics>([]);
-  const [showSearchResults, setShowSearchResults] = useState(false);
+
   const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-    if (query.trim() === "") {
-      setSearchResults([]);
-      setShowSearchResults(false);
-    } else {
-      const results = topics.filter((topic) =>
-        topic.title.toLowerCase().includes(query.toLowerCase()) ||
-        topic.description.toLowerCase().includes(query.toLowerCase())
-      );
-      setSearchResults(results);
-      setShowSearchResults(true);
-    }
-  };
 
-  const clearSearch = () => {
-    setSearchQuery("");
-    setSearchResults([]);
-    setShowSearchResults(false);
-  };
 
   const heroSlides = [
     {
@@ -148,90 +128,11 @@ export default function Home() {
         <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 blob" style={{animationDelay: '4s'}}></div>
       </div>
 
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10 shadow-lg">
-        <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
-            <img src="/logo-new.webp" alt="Fairplay Awareness" className="w-16 h-16 drop-shadow-lg" />
-            <div>
-              <h1 className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Fairplay</h1>
-              <p className="text-xs text-purple-200">Awareness</p>
-            </div>
-          </div>
-
-          {/* Search Bar in Header */}
-          <div className="relative flex-1 max-w-xs mx-8">
-            <div className="relative flex items-center">
-              <Search className="absolute left-3 w-4 h-4 text-purple-400 pointer-events-none" />
-              <input
-                type="text"
-                placeholder="Search topics..."
-                value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
-                className="w-full pl-10 pr-10 py-2 bg-white/10 border border-purple-400/50 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all backdrop-blur"
-              />
-              {searchQuery && (
-                <button
-                  onClick={clearSearch}
-                  className="absolute right-3 text-gray-400 hover:text-white transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              )}
-            </div>
-
-            {/* Search Results Dropdown in Header */}
-            {showSearchResults && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border border-purple-400/30 rounded-lg backdrop-blur shadow-2xl z-50 overflow-hidden">
-                {searchResults.length > 0 ? (
-                  <div className="max-h-64 overflow-y-auto">
-                    {searchResults.map((result, idx) => {
-                      const getIcon = () => {
-                        if (result.icon === "Trophy") return <Trophy className="w-4 h-4 text-blue-400" />;
-                        if (result.icon === "Gamepad2") return <Gamepad2 className="w-4 h-4 text-purple-400" />;
-                        if (result.icon === "Briefcase") return <Briefcase className="w-4 h-4 text-pink-400" />;
-                        if (result.icon === "BookOpen") return <BookOpen className="w-4 h-4 text-orange-400" />;
-                        if (result.icon === "Globe") return <Globe className="w-4 h-4 text-cyan-400" />;
-                        return null;
-                      };
-                      return (
-                        <Link key={idx} href={`/learn/${result.id}`}>
-                          <a
-                            onClick={() => clearSearch()}
-                            className="flex items-center gap-3 p-3 border-b border-white/10 hover:bg-white/10 transition-colors cursor-pointer group text-sm"
-                          >
-                            <div className="flex-shrink-0">{getIcon()}</div>
-                            <div className="flex-1 min-w-0">
-                              <h4 className="font-semibold text-white group-hover:text-purple-400 transition-colors">{result.title}</h4>
-                            </div>
-                            <ArrowRight className="w-3 h-3 text-purple-400 flex-shrink-0" />
-                          </a>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="p-3 text-center text-xs text-gray-400">
-                    No topics found
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-
-          <div className="flex gap-6">
-            <Link href="/about">
-              <a className="text-sm font-medium text-white/80 hover:text-white transition-colors">About</a>
-            </Link>
-            <a href="#topics" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Topics</a>
-            <a href="#features" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Features</a>
-            <a href="#stats" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Impact</a>
-          </div>
-        </div>
-      </nav>
+      {/* Global Navigation */}
+      <Navbar />
 
       {/* Hero Section with Carousel Slides */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+      <section className="relative pt-8 pb-32 overflow-hidden">
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -771,7 +672,7 @@ export default function Home() {
                   <div className="text-4xl font-black text-white mb-2">{stat.value}</div>
                   <p className="text-gray-300">{stat.label}</p>
                 </div>
-                     );
+              );
             })}
           </div>
 

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { useState, useEffect } from 'react';
 import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
@@ -26,8 +27,11 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-purple-950 to-slate-950 overflow-hidden">
+      {/* Global Navigation */}
+      <Navbar />
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 z-10">
+      <section className="relative pt-8 pb-20 z-10">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center slide-in-up">
             <h1 className="text-6xl md:text-7xl font-black mb-6">
