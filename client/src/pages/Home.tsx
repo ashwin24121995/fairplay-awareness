@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { getAllTopics } from "@/lib/fairplayData";
-import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Trophy, Gamepad2, Briefcase, BookOpen } from "lucide-react";
+import { Mail, ArrowRight, Star, Zap, Target, Users, TrendingUp, Award, Sparkles, Heart, Globe, ChevronLeft, ChevronRight, Trophy, Gamepad2, Briefcase, BookOpen, Search, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 /**
@@ -16,6 +16,30 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<typeof topics>([]);
+  const [showSearchResults, setShowSearchResults] = useState(false);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    if (query.trim() === "") {
+      setSearchResults([]);
+      setShowSearchResults(false);
+    } else {
+      const results = topics.filter((topic) =>
+        topic.title.toLowerCase().includes(query.toLowerCase()) ||
+        topic.description.toLowerCase().includes(query.toLowerCase())
+      );
+      setSearchResults(results);
+      setShowSearchResults(true);
+    }
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
+    setSearchResults([]);
+    setShowSearchResults(false);
+  };
 
   const heroSlides = [
     {
@@ -142,6 +166,68 @@ export default function Home() {
               <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
                 Master ethical behavior and fairness across Sports, Gaming, Business, Education, and General Life. Join thousands of learners transforming their understanding through interactive content and real-world applications.
               </p>
+
+              {/* Search Bar */}
+              <div className="relative w-full max-w-lg">
+                <div className="relative flex items-center">
+                  <Search className="absolute left-4 w-5 h-5 text-purple-400 pointer-events-none" />
+                  <input
+                    type="text"
+                    placeholder="Search topics... (e.g., Sports, Gaming, Business)"
+                    value={searchQuery}
+                    onChange={(e) => handleSearch(e.target.value)}
+                    className="w-full pl-12 pr-12 py-4 bg-white/10 border border-purple-400/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:bg-white/20 transition-all backdrop-blur"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={clearSearch}
+                      className="absolute right-4 text-gray-400 hover:text-white transition-colors"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  )}
+                </div>
+
+                {/* Search Results Dropdown */}
+                {showSearchResults && (
+                  <div className="absolute top-full left-0 right-0 mt-3 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border border-purple-400/30 rounded-xl backdrop-blur shadow-2xl z-50 overflow-hidden">
+                    {searchResults.length > 0 ? (
+                      <div className="max-h-96 overflow-y-auto">
+                        {searchResults.map((result, idx) => {
+                          const getIcon = () => {
+                            if (result.icon === "Trophy") return <Trophy className="w-5 h-5 text-blue-400" />;
+                            if (result.icon === "Gamepad2") return <Gamepad2 className="w-5 h-5 text-purple-400" />;
+                            if (result.icon === "Briefcase") return <Briefcase className="w-5 h-5 text-pink-400" />;
+                            if (result.icon === "BookOpen") return <BookOpen className="w-5 h-5 text-orange-400" />;
+                            if (result.icon === "Globe") return <Globe className="w-5 h-5 text-cyan-400" />;
+                            return null;
+                          };
+                          return (
+                            <Link key={idx} href={`/learn/${result.id}`}>
+                              <a
+                                onClick={() => clearSearch()}
+                                className="flex items-center gap-4 p-4 border-b border-white/10 hover:bg-white/10 transition-colors cursor-pointer group"
+                              >
+                                <div className="flex-shrink-0">{getIcon()}</div>
+                                <div className="flex-1 min-w-0">
+                                  <h4 className="font-semibold text-white group-hover:text-purple-400 transition-colors">{result.title}</h4>
+                                  <p className="text-sm text-gray-400 line-clamp-1">{result.description}</p>
+                                </div>
+                                <ArrowRight className="w-4 h-4 text-purple-400 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                              </a>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className="p-6 text-center">
+                        <p className="text-gray-400">No topics found matching "{searchQuery}"</p>
+                        <p className="text-sm text-gray-500 mt-2">Try searching for: Sports, Gaming, Business, Education, or General Life</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
 
               <div className="flex gap-4 pt-4">
                 <a href="#topics">
