@@ -219,10 +219,12 @@ export default function Home() {
           </div>
 
           <div className="flex gap-6">
+            <Link href="/about">
+              <a className="text-sm font-medium text-white/80 hover:text-white transition-colors">About</a>
+            </Link>
             <a href="#topics" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Topics</a>
             <a href="#features" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Features</a>
             <a href="#stats" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Impact</a>
-            <a href="#contact" className="text-sm font-medium text-white/80 hover:text-white transition-colors">Contact</a>
           </div>
         </div>
       </nav>
